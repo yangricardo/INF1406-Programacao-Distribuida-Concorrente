@@ -1,0 +1,685 @@
+[Filosofo 0 - STARTED] começou
+[Filosofo 3 - STARTED] começou
+[Filosofo 1 - STARTED] começou
+[Filosofo 2 - STARTED] começou
+[Filosofo 3 - THINKING] vai pensar
+[Filosofo 4 - THINKING] vai pensar
+[Filosofo 1 - THINKING] vai pensar
+[Filosofo 4 - HUNGRY] terminou de pensar
+[Filosofo 0 - HUNGRY] terminou de pensar
+[Filosofo 2 - HUNGRY] terminou de pensar
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 0 'a esquerda' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 4 'a esquerda' 
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 2 - HUNGRY] pegou o garfo 2 'a esquerda' 
+[Filosofo 0 - HUNGRY] pegou o garfo 0 'a esquerda' 
+[Filosofo 4 - HUNGRY] pegou o garfo 4 'a esquerda' 
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 1 'a direita' 
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 3 'a direita' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 0 'a direita' 
+[Garfo 4] esta com o filosofo 4
+[Garfo 1] esta com o filosofo 1
+[Garfo 2] esta com o filosofo 2
+[Garfo 0] esta com o filosofo 0
+[Garfo 3] esta com o filosofo 3
+[Filosofo 0 - HUNGRY] não pegou o garfo 1 'a direita' 
+[Filosofo 3 - HUNGRY] não pegou o garfo 4 'a direita' 
+[Filosofo 4 - HUNGRY] não pegou o garfo 0 'a direita' 
+[Filosofo 3 - HUNGRY] vai comer
+[Filosofo 2 - HUNGRY] não pegou o garfo 3 'a direita' 
+[Filosofo 4 - HUNGRY] vai comer
+[Filosofo 0 - HUNGRY] vai comer
+[Filosofo 2 - HUNGRY] vai comer
+[Filosofo 1 - NOT_HUNGRY] terminou de comer
+[Filosofo 2 - NOT_HUNGRY] terminou de comer
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 3 'a esquerda' 
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 4 'a esquerda' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 0 'a esquerda' 
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 3 'a direita' 
+[Filosofo 2 - THINKING] vai pensar
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 0 'a direita' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 1 'a direita' 
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 3 - THINKING] vai pensar
+[Filosofo 4 - THINKING] vai pensar
+[Filosofo 1 - THINKING] vai pensar
+[Filosofo 2 - HUNGRY] terminou de pensar
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 2 'a esquerda' 
+[Filosofo 2 - HUNGRY] pegou o garfo 2 'a esquerda' 
+[Filosofo 0 - HUNGRY] terminou de pensar
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 3 'a direita' 
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 4 - HUNGRY] terminou de pensar
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 3 'a esquerda' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 4 'a esquerda' 
+[Filosofo 4 - HUNGRY] pegou o garfo 4 'a esquerda' 
+[Filosofo 2 - HUNGRY] pegou o garfo 3 'a direita' 
+[Filosofo 2 - HUNGRY] vai comer
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 0 'a direita' 
+[Garfo 3] esta com o filosofo 2
+[Filosofo 0 - HUNGRY] pegou o garfo 0 'a esquerda' 
+[Filosofo 3 - HUNGRY] não pegou o garfo 3 'a esquerda' 
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 1 'a direita' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 4 'a direita' 
+[Filosofo 4 - HUNGRY] vai comer
+[Filosofo 1 - HUNGRY] não pegou o garfo 2 'a direita' 
+[Filosofo 1 - HUNGRY] devolveu o garfo 1 'a esquerda' 
+[Filosofo 1 - HUNGRY] devolveu o garfo 2 'a direita' 
+[Filosofo 3 - HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 1 - THINKING] vai pensar
+[Filosofo 3 - THINKING] vai pensar
+[Filosofo 2 - NOT_HUNGRY] terminou de comer
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 2 'a esquerda' 
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 3 'a direita' 
+[Filosofo 2 - THINKING] vai pensar
+[Filosofo 4 - NOT_HUNGRY] terminou de comer
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 4 'a esquerda' 
+[Filosofo 0 - NOT_HUNGRY] terminou de comer
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 3 - HUNGRY] terminou de pensar
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 1 'a direita' 
+[Filosofo 0 - THINKING] vai pensar
+[Filosofo 1 - HUNGRY] pegou o garfo 2 'a direita' 
+[Filosofo 3 - HUNGRY] vai comer
+[Filosofo 2 - HUNGRY] terminou de pensar
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 2 'a esquerda' 
+[Garfo 2] esta com o filosofo 1
+[Filosofo 2 - HUNGRY] não pegou o garfo 2 'a esquerda' 
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 3 'a direita' 
+[Garfo 3] esta com o filosofo 3
+[Filosofo 2 - HUNGRY] não pegou o garfo 3 'a direita' 
+[Filosofo 2 - HUNGRY] devolveu o garfo 2 'a esquerda' 
+[Filosofo 2 - HUNGRY] devolveu o garfo 3 'a direita' 
+[Filosofo 2 - THINKING] vai pensar
+[Filosofo 4 - HUNGRY] terminou de pensar
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 4 'a esquerda' 
+[Filosofo 0 - HUNGRY] terminou de pensar
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 0 'a esquerda' 
+[Filosofo 1 - NOT_HUNGRY] terminou de comer
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 0 'a direita' 
+[Filosofo 1 - NOT_HUNGRY] devolveu o garfo 1 'a esquerda' 
+[Garfo 0] esta com o filosofo 0
+[Filosofo 1 - NOT_HUNGRY] devolveu o garfo 2 'a direita' 
+[Filosofo 3 - THINKING] vai pensar
+[Filosofo 4 - HUNGRY] vai comer
+[Filosofo 2 - HUNGRY] terminou de pensar
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 2 'a esquerda' 
+[Filosofo 2 - HUNGRY] pegou o garfo 2 'a esquerda' 
+[Filosofo 0 - NOT_HUNGRY] terminou de comer
+[Filosofo 3 - HUNGRY] terminou de pensar
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 4 - NOT_HUNGRY] terminou de comer
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 4 'a esquerda' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 0 'a esquerda' 
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 0 'a direita' 
+[Filosofo 2 - HUNGRY] pegou o garfo 3 'a direita' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 3 'a esquerda' 
+[Filosofo 2 - HUNGRY] vai comer
+[Filosofo 0 - THINKING] vai pensar
+[Garfo 3] esta com o filosofo 2
+[Filosofo 3 - HUNGRY] não pegou o garfo 3 'a esquerda' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 4 'a direita' 
+[Filosofo 1 - HUNGRY] não pegou o garfo 2 'a direita' 
+[Filosofo 3 - HUNGRY] pegou o garfo 4 'a direita' 
+[Filosofo 1 - HUNGRY] devolveu o garfo 1 'a esquerda' 
+[Filosofo 3 - HUNGRY] devolveu o garfo 3 'a esquerda' 
+[Filosofo 3 - HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 1 - HUNGRY] devolveu o garfo 2 'a direita' 
+[Filosofo 1 - THINKING] vai pensar
+[Filosofo 0 - HUNGRY] terminou de pensar
+[Filosofo 4 - HUNGRY] terminou de pensar
+[Filosofo 2 - NOT_HUNGRY] terminou de comer
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 0 'a esquerda' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 4 'a esquerda' 
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 2 'a esquerda' 
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 3 'a direita' 
+[Filosofo 0 - HUNGRY] pegou o garfo 0 'a esquerda' 
+[Filosofo 4 - HUNGRY] pegou o garfo 4 'a esquerda' 
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 3 - HUNGRY] terminou de pensar
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 0 'a direita' 
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 1 'a direita' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 3 'a esquerda' 
+[Filosofo 3 - HUNGRY] pegou o garfo 3 'a esquerda' 
+[Filosofo 0 - HUNGRY] pegou o garfo 1 'a direita' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 4 'a direita' 
+[Filosofo 4 - HUNGRY] devolveu o garfo 4 'a esquerda' 
+[Garfo 4] esta com o filosofo 4
+[Filosofo 3 - HUNGRY] não pegou o garfo 4 'a direita' 
+[Filosofo 4 - THINKING] vai pensar
+[Filosofo 1 - THINKING] vai pensar
+[Filosofo 2 - HUNGRY] terminou de pensar
+[Filosofo 0 - NOT_HUNGRY] terminou de comer
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 0 'a esquerda' 
+[Filosofo 2 - HUNGRY] pegou o garfo 2 'a esquerda' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 1 'a direita' 
+[Filosofo 3 - NOT_HUNGRY] terminou de comer
+[Filosofo 4 - HUNGRY] terminou de pensar
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 3 'a direita' 
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 3 'a esquerda' 
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 2 - HUNGRY] pegou o garfo 3 'a direita' 
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 2 - HUNGRY] vai comer
+[Filosofo 1 - HUNGRY] pegou o garfo 1 'a esquerda' 
+[Filosofo 3 - THINKING] vai pensar
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 2 'a direita' 
+[Filosofo 4 - HUNGRY] pegou o garfo 0 'a direita' 
+[Filosofo 4 - HUNGRY] vai comer
+[Filosofo 1 - HUNGRY] não pegou o garfo 2 'a direita' 
+[Filosofo 1 - HUNGRY] devolveu o garfo 1 'a esquerda' 
+[Filosofo 1 - HUNGRY] devolveu o garfo 2 'a direita' 
+[Filosofo 1 - THINKING] vai pensar
+[Filosofo 0 - HUNGRY] terminou de pensar
+[Filosofo 2 - NOT_HUNGRY] terminou de comer
+[Filosofo 3 - HUNGRY] terminou de pensar
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 0 'a esquerda' 
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 2 'a esquerda' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 3 'a esquerda' 
+[Filosofo 4 - NOT_HUNGRY] terminou de comer
+[Filosofo 0 - HUNGRY] não pegou o garfo 0 'a esquerda' 
+[Garfo 3] esta com o filosofo 2
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 4 'a esquerda' 
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 1 'a direita' 
+[Filosofo 3 - HUNGRY] não pegou o garfo 3 'a esquerda' 
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 0 'a direita' 
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 4 - THINKING] vai pensar
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 4 'a direita' 
+[Filosofo 0 - HUNGRY] vai comer
+[Garfo 1] esta com o filosofo 0
+[Filosofo 3 - HUNGRY] pegou o garfo 4 'a direita' 
+[Filosofo 1 - HUNGRY] não pegou o garfo 1 'a esquerda' 
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 2 'a direita' 
+[Filosofo 1 - HUNGRY] pegou o garfo 2 'a direita' 
+[Filosofo 1 - HUNGRY] devolveu o garfo 1 'a esquerda' 
+[Filosofo 1 - HUNGRY] devolveu o garfo 2 'a direita' 
+[Filosofo 1 - THINKING] vai pensar
+[Filosofo 2 - HUNGRY] terminou de pensar
+[Filosofo 4 - HUNGRY] terminou de pensar
+[Filosofo 0 - NOT_HUNGRY] terminou de comer
+[Filosofo 3 - NOT_HUNGRY] terminou de comer
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 2 'a esquerda' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 4 'a esquerda' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 0 'a esquerda' 
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 3 'a esquerda' 
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 1 'a direita' 
+[Garfo 4] esta com o filosofo 3
+[Filosofo 2 - HUNGRY] pegou o garfo 2 'a esquerda' 
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 3 'a direita' 
+[Filosofo 0 - THINKING] vai pensar
+[Filosofo 4 - HUNGRY] pegou o garfo 4 'a esquerda' 
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 0 'a direita' 
+[Filosofo 1 - HUNGRY] pegou o garfo 1 'a esquerda' 
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 2 'a direita' 
+[Filosofo 4 - HUNGRY] vai comer
+[Filosofo 1 - HUNGRY] não pegou o garfo 2 'a direita' 
+[Filosofo 1 - HUNGRY] devolveu o garfo 1 'a esquerda' 
+[Filosofo 1 - HUNGRY] devolveu o garfo 2 'a direita' 
+[Filosofo 1 - THINKING] vai pensar
+[Filosofo 0 - HUNGRY] terminou de pensar
+[Filosofo 2 - NOT_HUNGRY] terminou de comer
+[Filosofo 4 - NOT_HUNGRY] terminou de comer
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 0 'a esquerda' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 3 'a esquerda' 
+[Garfo 3] esta com o filosofo 2
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 3 'a direita' 
+[Garfo 0] esta com o filosofo 4
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 0 'a direita' 
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 3 - HUNGRY] pegou o garfo 3 'a esquerda' 
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 1 'a direita' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 4 'a direita' 
+[Filosofo 4 - THINKING] vai pensar
+[Filosofo 1 - HUNGRY] pegou o garfo 1 'a esquerda' 
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 2 'a direita' 
+[Filosofo 0 - HUNGRY] não pegou o garfo 1 'a direita' 
+[Filosofo 1 - HUNGRY] pegou o garfo 2 'a direita' 
+[Filosofo 0 - HUNGRY] vai comer
+[Filosofo 2 - HUNGRY] terminou de pensar
+[Filosofo 4 - HUNGRY] terminou de pensar
+[Filosofo 3 - NOT_HUNGRY] terminou de comer
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 3 'a esquerda' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 4 'a esquerda' 
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 2 'a esquerda' 
+[Filosofo 1 - NOT_HUNGRY] terminou de comer
+[Filosofo 0 - NOT_HUNGRY] terminou de comer
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 0 'a esquerda' 
+[Garfo 2] esta com o filosofo 1
+[Filosofo 1 - NOT_HUNGRY] devolveu o garfo 1 'a esquerda' 
+[Filosofo 4 - HUNGRY] pegou o garfo 4 'a esquerda' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 1 'a direita' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 0 'a direita' 
+[Filosofo 1 - NOT_HUNGRY] devolveu o garfo 2 'a direita' 
+[Filosofo 1 - THINKING] vai pensar
+[Filosofo 2 - HUNGRY] vai comer
+[Filosofo 3 - HUNGRY] terminou de pensar
+[Filosofo 0 - HUNGRY] terminou de pensar
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 3 'a esquerda' 
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 0 'a esquerda' 
+[Filosofo 4 - NOT_HUNGRY] terminou de comer
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 2 'a esquerda' 
+[Garfo 3] esta com o filosofo 2
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 0 'a direita' 
+[Filosofo 1 - HUNGRY] pegou o garfo 1 'a esquerda' 
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 3 'a direita' 
+[Filosofo 4 - THINKING] vai pensar
+[Filosofo 0 - HUNGRY] pegou o garfo 0 'a esquerda' 
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 2 'a direita' 
+[Filosofo 3 - HUNGRY] não pegou o garfo 3 'a esquerda' 
+[Filosofo 1 - HUNGRY] pegou o garfo 2 'a direita' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 4 'a direita' 
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 1 'a direita' 
+[Filosofo 3 - HUNGRY] pegou o garfo 4 'a direita' 
+[Filosofo 0 - HUNGRY] não pegou o garfo 1 'a direita' 
+[Filosofo 0 - HUNGRY] devolveu o garfo 0 'a esquerda' 
+[Filosofo 0 - HUNGRY] devolveu o garfo 1 'a direita' 
+[Filosofo 0 - THINKING] vai pensar
+[Filosofo 4 - HUNGRY] terminou de pensar
+[Filosofo 2 - HUNGRY] terminou de pensar
+[Filosofo 1 - NOT_HUNGRY] terminou de comer
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 2 'a esquerda' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 4 'a esquerda' 
+[Filosofo 3 - NOT_HUNGRY] terminou de comer
+[Filosofo 1 - NOT_HUNGRY] devolveu o garfo 2 'a direita' 
+[Garfo 4] esta com o filosofo 3
+[Garfo 2] esta com o filosofo 1
+[Filosofo 0 - HUNGRY] terminou de pensar
+[Filosofo 1 - THINKING] vai pensar
+[Filosofo 4 - HUNGRY] não pegou o garfo 4 'a esquerda' 
+[Filosofo 2 - HUNGRY] não pegou o garfo 2 'a esquerda' 
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 0 'a esquerda' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 0 'a direita' 
+[Filosofo 0 - HUNGRY] pegou o garfo 0 'a esquerda' 
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 3 'a direita' 
+[Filosofo 4 - HUNGRY] pegou o garfo 0 'a direita' 
+[Filosofo 4 - HUNGRY] vai comer
+[Filosofo 0 - HUNGRY] pegou o garfo 1 'a direita' 
+[Filosofo 0 - HUNGRY] vai comer
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 3 - HUNGRY] terminou de pensar
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 3 'a esquerda' 
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 2 - NOT_HUNGRY] terminou de comer
+[Filosofo 4 - NOT_HUNGRY] terminou de comer
+[Filosofo 0 - NOT_HUNGRY] terminou de comer
+[Garfo 1] esta com o filosofo 0
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 0 'a esquerda' 
+[Filosofo 3 - HUNGRY] não pegou o garfo 3 'a esquerda' 
+[Filosofo 1 - HUNGRY] não pegou o garfo 1 'a esquerda' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 1 'a direita' 
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 0 'a direita' 
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 3 'a direita' 
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 2 'a direita' 
+[Filosofo 2 - THINKING] vai pensar
+[Filosofo 3 - HUNGRY] pegou o garfo 4 'a direita' 
+[Filosofo 1 - HUNGRY] vai comer
+[Filosofo 0 - HUNGRY] terminou de pensar
+[Filosofo 3 - NOT_HUNGRY] terminou de comer
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 2 'a esquerda' 
+[Filosofo 1 - NOT_HUNGRY] devolveu o garfo 1 'a esquerda' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 4 'a esquerda' 
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 0 'a esquerda' 
+[Garfo 4] esta com o filosofo 3
+[Filosofo 1 - NOT_HUNGRY] devolveu o garfo 2 'a direita' 
+[Filosofo 0 - HUNGRY] pegou o garfo 0 'a esquerda' 
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 2 - HUNGRY] não pegou o garfo 2 'a esquerda' 
+[Filosofo 3 - THINKING] vai pensar
+[Filosofo 1 - THINKING] vai pensar
+[Filosofo 4 - HUNGRY] pegou o garfo 4 'a esquerda' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 0 'a direita' 
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 3 'a direita' 
+[Garfo 0] esta com o filosofo 0
+[Filosofo 2 - HUNGRY] vai comer
+[Filosofo 4 - HUNGRY] devolveu o garfo 4 'a esquerda' 
+[Filosofo 4 - HUNGRY] devolveu o garfo 0 'a direita' 
+[Filosofo 4 - THINKING] vai pensar
+[Filosofo 3 - HUNGRY] terminou de pensar
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 0 - NOT_HUNGRY] terminou de comer
+[Filosofo 2 - NOT_HUNGRY] terminou de comer
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 3 'a esquerda' 
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 0 'a esquerda' 
+[Filosofo 4 - HUNGRY] terminou de pensar
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 1 'a direita' 
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 3 'a direita' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 4 'a esquerda' 
+[Filosofo 0 - THINKING] vai pensar
+[Garfo 3] esta com o filosofo 2
+[Filosofo 4 - HUNGRY] pegou o garfo 4 'a esquerda' 
+[Filosofo 3 - HUNGRY] não pegou o garfo 3 'a esquerda' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 0 'a direita' 
+[Filosofo 2 - THINKING] vai pensar
+[Filosofo 4 - HUNGRY] pegou o garfo 0 'a direita' 
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 2 'a direita' 
+[Filosofo 4 - HUNGRY] vai comer
+[Filosofo 1 - HUNGRY] pegou o garfo 2 'a direita' 
+[Filosofo 3 - HUNGRY] não pegou o garfo 4 'a direita' 
+[Filosofo 3 - HUNGRY] devolveu o garfo 3 'a esquerda' 
+[Filosofo 3 - HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 3 - THINKING] vai pensar
+[Filosofo 0 - HUNGRY] terminou de pensar
+[Filosofo 2 - HUNGRY] terminou de pensar
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 2 'a esquerda' 
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 0 'a esquerda' 
+[Filosofo 4 - NOT_HUNGRY] terminou de comer
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 4 'a esquerda' 
+[Garfo 2] esta com o filosofo 1
+[Filosofo 1 - NOT_HUNGRY] terminou de comer
+[Filosofo 0 - HUNGRY] não pegou o garfo 0 'a esquerda' 
+[Filosofo 1 - NOT_HUNGRY] devolveu o garfo 1 'a esquerda' 
+[Filosofo 3 - HUNGRY] terminou de pensar
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 3 'a direita' 
+[Filosofo 4 - THINKING] vai pensar
+[Filosofo 1 - NOT_HUNGRY] devolveu o garfo 2 'a direita' 
+[Filosofo 3 - HUNGRY] pegou o garfo 3 'a esquerda' 
+[Filosofo 1 - THINKING] vai pensar
+[Filosofo 0 - HUNGRY] pegou o garfo 1 'a direita' 
+[Filosofo 2 - HUNGRY] pegou o garfo 3 'a direita' 
+[Filosofo 0 - HUNGRY] vai comer
+[Filosofo 3 - HUNGRY] pegou o garfo 4 'a direita' 
+[Filosofo 3 - HUNGRY] devolveu o garfo 3 'a esquerda' 
+[Filosofo 3 - HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 3 - THINKING] vai pensar
+[Filosofo 4 - HUNGRY] terminou de pensar
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 2 - NOT_HUNGRY] terminou de comer
+[Filosofo 0 - NOT_HUNGRY] terminou de comer
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 2 'a esquerda' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 4 'a esquerda' 
+[Filosofo 3 - HUNGRY] terminou de pensar
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 3 'a esquerda' 
+[Filosofo 4 - HUNGRY] pegou o garfo 4 'a esquerda' 
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 3 'a direita' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 1 'a direita' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 0 'a direita' 
+[Filosofo 2 - THINKING] vai pensar
+[Filosofo 1 - HUNGRY] pegou o garfo 1 'a esquerda' 
+[Filosofo 0 - THINKING] vai pensar
+[Filosofo 4 - HUNGRY] pegou o garfo 0 'a direita' 
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 2 'a direita' 
+[Filosofo 1 - HUNGRY] pegou o garfo 2 'a direita' 
+[Garfo 4] esta com o filosofo 4
+[Filosofo 3 - HUNGRY] não pegou o garfo 4 'a direita' 
+[Filosofo 3 - HUNGRY] devolveu o garfo 3 'a esquerda' 
+[Filosofo 3 - HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 3 - THINKING] vai pensar
+[Filosofo 0 - HUNGRY] terminou de pensar
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 2 'a esquerda' 
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 0 'a esquerda' 
+[Filosofo 4 - NOT_HUNGRY] terminou de comer
+[Filosofo 1 - NOT_HUNGRY] terminou de comer
+[Garfo 0] esta com o filosofo 4
+[Garfo 2] esta com o filosofo 1
+[Filosofo 1 - NOT_HUNGRY] devolveu o garfo 1 'a esquerda' 
+[Filosofo 2 - HUNGRY] não pegou o garfo 2 'a esquerda' 
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 4 'a esquerda' 
+[Filosofo 3 - HUNGRY] terminou de pensar
+[Filosofo 1 - NOT_HUNGRY] devolveu o garfo 2 'a direita' 
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 3 'a direita' 
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 0 'a direita' 
+[Filosofo 3 - HUNGRY] pegou o garfo 3 'a esquerda' 
+[Filosofo 4 - THINKING] vai pensar
+[Filosofo 0 - HUNGRY] pegou o garfo 1 'a direita' 
+[Filosofo 1 - THINKING] vai pensar
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 4 'a direita' 
+[Filosofo 3 - HUNGRY] pegou o garfo 4 'a direita' 
+[Filosofo 3 - HUNGRY] devolveu o garfo 3 'a esquerda' 
+[Filosofo 3 - HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 3 - THINKING] vai pensar
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 0 - NOT_HUNGRY] terminou de comer
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 2 'a esquerda' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 4 'a esquerda' 
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 3 - HUNGRY] terminou de pensar
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 1 'a direita' 
+[Filosofo 4 - HUNGRY] pegou o garfo 4 'a esquerda' 
+[Garfo 1] esta com o filosofo 0
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 3 'a esquerda' 
+[Filosofo 1 - HUNGRY] pegou o garfo 1 'a esquerda' 
+[Filosofo 2 - THINKING] vai pensar
+[Filosofo 4 - HUNGRY] pegou o garfo 0 'a direita' 
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 2 'a direita' 
+[Filosofo 4 - HUNGRY] vai comer
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 4 'a direita' 
+[Garfo 4] esta com o filosofo 4
+[Filosofo 1 - HUNGRY] vai comer
+[Filosofo 3 - HUNGRY] não pegou o garfo 4 'a direita' 
+[Filosofo 3 - HUNGRY] devolveu o garfo 3 'a esquerda' 
+[Filosofo 3 - HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 3 - THINKING] vai pensar
+[Filosofo 2 - HUNGRY] terminou de pensar
+[Filosofo 0 - HUNGRY] terminou de pensar
+[Filosofo 4 - NOT_HUNGRY] terminou de comer
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 0 'a esquerda' 
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 2 'a esquerda' 
+[Filosofo 1 - NOT_HUNGRY] terminou de comer
+[Garfo 0] esta com o filosofo 4
+[Garfo 2] esta com o filosofo 1
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 0 'a direita' 
+[Filosofo 3 - HUNGRY] terminou de pensar
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 3 'a esquerda' 
+[Filosofo 4 - THINKING] vai pensar
+[Filosofo 0 - HUNGRY] pegou o garfo 0 'a esquerda' 
+[Filosofo 3 - HUNGRY] pegou o garfo 3 'a esquerda' 
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 3 'a direita' 
+[Filosofo 2 - HUNGRY] pegou o garfo 3 'a direita' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 4 'a direita' 
+[Filosofo 2 - HUNGRY] vai comer
+[Filosofo 3 - HUNGRY] vai comer
+[Filosofo 4 - HUNGRY] terminou de pensar
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 0 - NOT_HUNGRY] terminou de comer
+[Filosofo 2 - NOT_HUNGRY] terminou de comer
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 2 'a esquerda' 
+[Filosofo 3 - NOT_HUNGRY] terminou de comer
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 4 'a esquerda' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 0 'a esquerda' 
+[Garfo 1] esta com o filosofo 0
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 1 'a direita' 
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 3 'a esquerda' 
+[Garfo 4] esta com o filosofo 3
+[Filosofo 2 - THINKING] vai pensar
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 4 - HUNGRY] não pegou o garfo 4 'a esquerda' 
+[Filosofo 3 - THINKING] vai pensar
+[Filosofo 4 - HUNGRY] pegou o garfo 0 'a direita' 
+[Filosofo 4 - HUNGRY] vai comer
+[Filosofo 2 - HUNGRY] terminou de pensar
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 2 'a esquerda' 
+[Filosofo 0 - HUNGRY] terminou de pensar
+[Filosofo 3 - HUNGRY] terminou de pensar
+[Garfo 2] esta com o filosofo 1
+[Filosofo 1 - NOT_HUNGRY] terminou de comer
+[Filosofo 3 - HUNGRY] pegou o garfo 3 'a esquerda' 
+[Filosofo 4 - NOT_HUNGRY] terminou de comer
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 4 'a esquerda' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 4 'a direita' 
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 3 'a direita' 
+[Filosofo 0 - HUNGRY] não pegou o garfo 0 'a esquerda' 
+[Filosofo 3 - HUNGRY] pegou o garfo 4 'a direita' 
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 0 'a direita' 
+[Filosofo 1 - THINKING] vai pensar
+[Garfo 3] esta com o filosofo 3
+[Filosofo 3 - HUNGRY] vai comer
+[Filosofo 4 - THINKING] vai pensar
+[Filosofo 2 - HUNGRY] vai comer
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 1 'a direita' 
+[Filosofo 0 - HUNGRY] pegou o garfo 1 'a direita' 
+[Filosofo 0 - HUNGRY] vai comer
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 4 - HUNGRY] terminou de pensar
+[Filosofo 2 - NOT_HUNGRY] terminou de comer
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 4 'a esquerda' 
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 3 'a esquerda' 
+[Garfo 1] esta com o filosofo 0
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 3 'a direita' 
+[Garfo 4] esta com o filosofo 3
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 0 - NOT_HUNGRY] terminou de comer
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 2 'a direita' 
+[Filosofo 4 - HUNGRY] pegou o garfo 4 'a esquerda' 
+[Filosofo 2 - THINKING] vai pensar
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 0 'a esquerda' 
+[Filosofo 3 - THINKING] vai pensar
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 1 'a direita' 
+[Filosofo 0 - THINKING] vai pensar
+[Filosofo 4 - HUNGRY] pegou o garfo 0 'a direita' 
+[Filosofo 4 - HUNGRY] vai comer
+[Filosofo 3 - HUNGRY] terminou de pensar
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 3 'a esquerda' 
+[Filosofo 1 - NOT_HUNGRY] terminou de comer
+[Filosofo 4 - NOT_HUNGRY] terminou de comer
+[Filosofo 3 - HUNGRY] pegou o garfo 3 'a esquerda' 
+[Filosofo 1 - NOT_HUNGRY] devolveu o garfo 1 'a esquerda' 
+[Garfo 2] esta com o filosofo 1
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 4 'a esquerda' 
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 0 'a direita' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 4 'a direita' 
+[Filosofo 1 - NOT_HUNGRY] devolveu o garfo 2 'a direita' 
+[Garfo 0] esta com o filosofo 4
+[Filosofo 2 - HUNGRY] não pegou o garfo 2 'a esquerda' 
+[Filosofo 3 - HUNGRY] pegou o garfo 4 'a direita' 
+[Filosofo 4 - THINKING] vai pensar
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 3 'a direita' 
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 1 'a direita' 
+[Filosofo 2 - HUNGRY] não pegou o garfo 3 'a direita' 
+[Filosofo 2 - HUNGRY] devolveu o garfo 2 'a esquerda' 
+[Filosofo 0 - HUNGRY] vai comer
+[Filosofo 2 - HUNGRY] devolveu o garfo 3 'a direita' 
+[Filosofo 2 - THINKING] vai pensar
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 3 - NOT_HUNGRY] terminou de comer
+[Filosofo 0 - NOT_HUNGRY] terminou de comer
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 4 'a esquerda' 
+[Filosofo 2 - HUNGRY] terminou de pensar
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 3 'a esquerda' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 0 'a esquerda' 
+[Garfo 4] esta com o filosofo 3
+[Garfo 1] esta com o filosofo 0
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 2 'a esquerda' 
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 1 - HUNGRY] não pegou o garfo 1 'a esquerda' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 1 'a direita' 
+[Filosofo 0 - THINKING] vai pensar
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 0 'a direita' 
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 3 'a direita' 
+[Filosofo 4 - HUNGRY] pegou o garfo 0 'a direita' 
+[Filosofo 2 - HUNGRY] pegou o garfo 3 'a direita' 
+[Filosofo 1 - HUNGRY] não pegou o garfo 2 'a direita' 
+[Filosofo 1 - HUNGRY] vai comer
+[Filosofo 3 - HUNGRY] terminou de pensar
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 3 'a esquerda' 
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 0 'a esquerda' 
+[Filosofo 2 - NOT_HUNGRY] terminou de comer
+[Filosofo 4 - NOT_HUNGRY] terminou de comer
+[Filosofo 1 - NOT_HUNGRY] terminou de comer
+[Garfo 3] esta com o filosofo 2
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 2 'a esquerda' 
+[Garfo 0] esta com o filosofo 4
+[Filosofo 1 - NOT_HUNGRY] devolveu o garfo 1 'a esquerda' 
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 4 'a esquerda' 
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 3 'a direita' 
+[Filosofo 0 - HUNGRY] não pegou o garfo 0 'a esquerda' 
+[Filosofo 3 - HUNGRY] não pegou o garfo 3 'a esquerda' 
+[Filosofo 1 - THINKING] vai pensar
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 1 'a direita' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 4 'a direita' 
+[Filosofo 4 - THINKING] vai pensar
+[Filosofo 2 - THINKING] vai pensar
+[Filosofo 0 - HUNGRY] pegou o garfo 1 'a direita' 
+[Filosofo 3 - HUNGRY] vai comer
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 2 - HUNGRY] terminou de pensar
+[Filosofo 3 - NOT_HUNGRY] terminou de comer
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 4 'a esquerda' 
+[Filosofo 0 - NOT_HUNGRY] terminou de comer
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 2 'a esquerda' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 0 'a esquerda' 
+[Filosofo 1 - HUNGRY] não pegou o garfo 1 'a esquerda' 
+[Filosofo 4 - HUNGRY] não pegou o garfo 4 'a esquerda' 
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 0 - NOT_HUNGRY] devolveu o garfo 1 'a direita' 
+[Filosofo 3 - THINKING] vai pensar
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 2 'a direita' 
+[Filosofo 2 - HUNGRY] pegou o garfo 3 'a direita' 
+[Filosofo 4 - HUNGRY] pegou o garfo 0 'a direita' 
+[Filosofo 4 - HUNGRY] vai comer
+[Filosofo 2 - HUNGRY] vai comer
+[Filosofo 1 - HUNGRY] devolveu o garfo 1 'a esquerda' 
+[Filosofo 1 - HUNGRY] devolveu o garfo 2 'a direita' 
+[Filosofo 1 - THINKING] vai pensar
+[Filosofo 3 - HUNGRY] terminou de pensar
+[Filosofo 4 - NOT_HUNGRY] terminou de comer
+[Filosofo 2 - NOT_HUNGRY] terminou de comer
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 4 'a esquerda' 
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 2 'a esquerda' 
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 3 'a esquerda' 
+[Filosofo 1 - HUNGRY] terminou de pensar
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 1 'a esquerda' 
+[Filosofo 4 - NOT_HUNGRY] devolveu o garfo 0 'a direita' 
+[Filosofo 2 - NOT_HUNGRY] devolveu o garfo 3 'a direita' 
+[Filosofo 3 - HUNGRY] não pegou o garfo 3 'a esquerda' 
+[Filosofo 0 - HUNGRY] não pegou o garfo 0 'a esquerda' 
+[Filosofo 1 - HUNGRY] pegou o garfo 1 'a esquerda' 
+[Filosofo 4 - THINKING] vai pensar
+[Filosofo 1 - HUNGRY] vai tentar pegar o garfo 2 'a direita' 
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 1 'a direita' 
+[Filosofo 2 - THINKING] vai pensar
+[Filosofo 3 - HUNGRY] vai tentar pegar o garfo 4 'a direita' 
+[Filosofo 1 - HUNGRY] pegou o garfo 2 'a direita' 
+[Garfo 1] esta com o filosofo 1
+[Filosofo 3 - HUNGRY] vai comer
+[Filosofo 1 - HUNGRY] vai comer
+[Filosofo 0 - HUNGRY] devolveu o garfo 0 'a esquerda' 
+[Filosofo 0 - HUNGRY] devolveu o garfo 1 'a direita' 
+[Filosofo 0 - THINKING] vai pensar
+[Filosofo 4 - HUNGRY] terminou de pensar
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 4 'a esquerda' 
+[Garfo 4] esta com o filosofo 3
+[Filosofo 4 - HUNGRY] não pegou o garfo 4 'a esquerda' 
+[Filosofo 4 - HUNGRY] vai tentar pegar o garfo 0 'a direita' 
+[Filosofo 2 - HUNGRY] terminou de pensar
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 2 'a esquerda' 
+[Filosofo 3 - NOT_HUNGRY] terminou de comer
+[Filosofo 1 - NOT_HUNGRY] terminou de comer
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 3 'a esquerda' 
+[Filosofo 1 - NOT_HUNGRY] devolveu o garfo 1 'a esquerda' 
+[Garfo 2] esta com o filosofo 1
+[Filosofo 4 - HUNGRY] vai comer
+[Filosofo 2 - HUNGRY] não pegou o garfo 2 'a esquerda' 
+[Filosofo 1 - NOT_HUNGRY] devolveu o garfo 2 'a direita' 
+[Filosofo 3 - NOT_HUNGRY] devolveu o garfo 4 'a direita' 
+[Filosofo 0 - HUNGRY] terminou de pensar
+[Filosofo 2 - HUNGRY] vai tentar pegar o garfo 3 'a direita' 
+[Filosofo 1 - THINKING] vai pensar
+[Filosofo 3 - THINKING] vai pensar
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 0 'a esquerda' 
+[Garfo 0] esta com o filosofo 4
+[Filosofo 0 - HUNGRY] não pegou o garfo 0 'a esquerda' 
+[Filosofo 0 - HUNGRY] vai tentar pegar o garfo 1 'a direita' 
+[Filosofo 0 - HUNGRY] pegou o garfo 1 'a direita' 
+[Filosofo 0 - HUNGRY] devolveu o garfo 0 'a esquerda' 
+[Filosofo 0 - HUNGRY] devolveu o garfo 1 'a direita' 
+[Filosofo 0 - THINKING] vai pensar

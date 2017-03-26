@@ -1,5 +1,7 @@
 package wrongImplementation;
 
+import fileLog.LogControl;
+
 public class Fork {
 
 	private int id;
@@ -13,8 +15,11 @@ public class Fork {
 	}
 	
 	public boolean isBeingUsed(){
-		if(isBeingUsed == true)
+		if(isBeingUsed == true){
+		/*	LogControl.writeMessage("wrongPhilosophersDinnerLog", 
+					"[Garfo "+this.id+"] esta com o filosofo "+ philId);*/
 			System.out.println("[Garfo "+this.id+"] esta com o filosofo "+ philId);
+		}
 		return isBeingUsed;
 	}
 	
