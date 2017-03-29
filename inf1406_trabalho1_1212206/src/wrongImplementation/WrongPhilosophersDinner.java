@@ -1,7 +1,5 @@
 package wrongImplementation;
 
-import fileLog.LogControl;
-
 public class WrongPhilosophersDinner {
 	static Fork[] forks =  new Fork[5];
 	static PhilosopherStatus[] philStates = new PhilosopherStatus[5];

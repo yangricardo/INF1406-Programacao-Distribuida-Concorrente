@@ -1,7 +1,5 @@
 package wrongImplementation;
 
-import fileLog.LogControl;
-
 public class Philosopher implements Runnable {
 
 	private int id;
@@ -67,7 +65,6 @@ public class Philosopher implements Runnable {
 
 	private void printMessage(int id, String message) {
 		String logMessage = "[Filosofo " + id + " - " + philStates[id] + "] " + message;
-		//LogControl.writeMessage("wrongPhilosophersDinnerLog", logMessage);
 		System.out.println(logMessage);
 	}
 
