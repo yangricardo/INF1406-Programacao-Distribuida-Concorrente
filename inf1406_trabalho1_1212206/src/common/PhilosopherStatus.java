@@ -1,4 +1,4 @@
-package wrongImplementation;
+package common;
 
 public enum PhilosopherStatus {
 	STARTED,THINKING,HUNGRY,EATING,NOT_HUNGRY
