@@ -446,5 +446,4 @@ public class MultiThreadSquareMatrixMultiplication {
 			System.out.println("Thread " + i + " computou " + countThreadsTasks[i] + " tarefas");
 		// printNRandomMatrices(9, 20);
 	}
-
 }
