@@ -10,16 +10,16 @@ public class Philosopher extends Thread {
 	private static int maxPhilosophers;
 	private static Fork[] forks;
 	private static PhilosopherStatus[] philStates;
-	private static int leftFork;
-	private static int rightFork;
+	private int leftFork;
+	private int rightFork;
 	
 	public Philosopher(int id, int maxPhilosophers, Fork[] forks, PhilosopherStatus[] philStates) {
 		this.id = id;
 		Philosopher.forks = forks;
 		Philosopher.philStates = philStates;
 		Philosopher.maxPhilosophers = maxPhilosophers;
-		Philosopher.leftFork = this.id;
-		Philosopher.rightFork = (this.id + 1) % maxPhilosophers;
+		this.leftFork = this.id;
+		this.rightFork = (this.id + 1) % maxPhilosophers;
 	}
 
 	private void think() throws InterruptedException {

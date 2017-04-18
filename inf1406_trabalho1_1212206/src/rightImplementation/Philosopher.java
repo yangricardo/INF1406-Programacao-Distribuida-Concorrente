@@ -52,7 +52,9 @@ public class Philosopher extends Thread {
 
 	private boolean takeFork(int forkId) {
 		// TODO Auto-generated method stub
+		//aqui deveria estar sendo monitorado por semaforo
 		printMessage(this.id, "vai tentar pegar o garfo " + forkId + isLeftOrRightFork(forkId));
+		//down
 		if (!forks[forkId].isBeingUsed()) {
 			// se o garfo não estiver sendo usado o filosofo vai tentar pegar
 			printMessage(this.id, "pegou o garfo " + forkId + isLeftOrRightFork(forkId));
@@ -63,6 +65,7 @@ public class Philosopher extends Thread {
 			philStates[this.id] = PhilosopherStatus.HUNGRY;
 			return false;
 		}
+		//up
 	}
 
 	private boolean tryTakeForks() {
@@ -72,11 +75,14 @@ public class Philosopher extends Thread {
 
 	private void putFork(int forkId) {
 		// TODO Auto-generated method stub
+		//down
 		printMessage(this.id, "devolveu o garfo " + forkId + isLeftOrRightFork(forkId));
 		forks[forkId].putFork();
+		//up
 	}
 
 	private void putForks() {
+		//deveria estar sendo monitorado por semaforo
 		putFork(leftFork);
 		putFork(rightFork);
 	}
@@ -94,6 +100,9 @@ public class Philosopher extends Thread {
 				if (philStates[this.id] != PhilosopherStatus.HUNGRY)
 					think();
 				// senão vai tentar comer
+				//synchronized trytakeforks
+				//eat
+				//synchronized putforks
 				synchronized (LOCK) {
 					if(tryTakeForks()){
 						eat();
