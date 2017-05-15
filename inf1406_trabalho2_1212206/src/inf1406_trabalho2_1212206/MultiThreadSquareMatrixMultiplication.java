@@ -77,12 +77,12 @@ public class MultiThreadSquareMatrixMultiplication {
 	private static ArrayList<ArrayList<ArrayList<Double>>> matrices = new ArrayList<ArrayList<ArrayList<Double>>>();
 	private static ArrayList<ArrayList<Double>> resultedMatrix;
 	// Variaveis que controlam arquivos
-	private static String pathFileMatrices = "matrizes.txt";
+	private static String pathFileMatrices = "matrices.txt";
 	private static String pathFileResult = "resultado.txt";
 	// variaveis que controlam os aspectos principais do programa
-	private static int matricesDimension = 20;
-	private static int numThreads = 10;
-	private static int numMatrices = 9;
+	private static int matricesDimension = 3;
+	private static int numThreads = 4;
+	private static int numMatrices = 6;
 	// busy job
 	private static int virtualJobsLoops = matricesDimension;
 	private static int[] countThreadsTasks;
