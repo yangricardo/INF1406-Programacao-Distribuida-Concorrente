@@ -12,8 +12,7 @@ public class Server{
 
 	public static void main(String[] args) {
 		
-
-		System.setProperty("java.security.policy", "file:C:///Users//Yang//Desktop//INF1406//RMIHelloServer//server.policy");
+		System.setProperty("java.security.policy", "file:C:///Users//Yang//Desktop//INF1406//INF1406-Programacao-Distribuida-Concorrente//RMIHelloServer//bin//");
 		if(System.getSecurityManager()==null){
 			System.setSecurityManager(new SecurityManager());
 		}
