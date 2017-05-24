@@ -1,19 +1,28 @@
-import java.net.MalformedURLException;
-import java.rmi.Naming;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 
 public class AdditionServer {
 
 	public static void main(String[] args) {
- 
+
+		System.setProperty("java.security.policy", "file:./server.policy");
+		System.setProperty("java.rmi.server.hostname", "127.0.0.1");
+		
+		if(System.getSecurityManager() == null) {
+			System.setSecurityManager(new SecurityManager());
+		}
+			
 		try {
 			Addition hello = new Addition();
-			Naming.rebind("rmi://localhost/ADD", hello);
+			AdditionInterface stub = (AdditionInterface) UnicastRemoteObject.exportObject(hello, 0);
+			Registry registy = LocateRegistry.createRegistry(1100);
+			registy.rebind("Add", stub);
+			
 			System.out.println("AdditionServer está pronto!");
 		} catch (RemoteException e) {
 			System.err.println("Inicialização do AdditionServer falhou - Erro de acesso remoto\n"+e.getMessage()+"\n"+e.getCause()+"\n"+e.getLocalizedMessage());
-		} catch (MalformedURLException e) {
-			System.err.println("Inicialização do Falha no servidor AdditionServer- Erro na url do rmi\n"+e.getMessage()+"\n"+e.getCause()+"\n"+e.getLocalizedMessage());
 		}
 		
 	}
