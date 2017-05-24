@@ -33,7 +33,7 @@ public class ComputeEngine implements Compute {
 		int port = 1099;
 		String webService = "Compute";
 		Path policy = Paths.get(System.getProperty("user.dir"), "server.policy");
-		Path codeBase = Paths.get(System.getProperty("java.class.path"), "computeContracts");
+		Path codeBase = Paths.get(System.getProperty("java.class.path"));
 
 		System.setProperty("java.security.policy", policy.toUri().toString());
 		System.setProperty("java.rmi.server.codebase", codeBase.toUri().toString());
