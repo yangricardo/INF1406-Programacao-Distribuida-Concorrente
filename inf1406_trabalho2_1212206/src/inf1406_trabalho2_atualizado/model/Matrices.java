@@ -3,6 +3,8 @@ package inf1406_trabalho2_atualizado.model;
 import java.util.ArrayList;
 
 public class Matrices {
+	int dimMatrices;
+	int numMatrices;
 	ArrayList<Matrix> matrices;
 	
 	public Matrices() {
