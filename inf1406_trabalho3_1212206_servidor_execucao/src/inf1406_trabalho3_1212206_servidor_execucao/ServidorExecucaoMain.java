@@ -12,6 +12,10 @@ import contracts.Execucao;
 public class ServidorExecucaoMain {
 
 	public static void main(String[] args) throws RemoteException,AccessException {
+		
+		if(args.length != 1)
+			System.exit(1);
+		
 		int numThreads = Integer.parseInt(args[0]);
 		String host = "localhost";
 		int port = 1099;

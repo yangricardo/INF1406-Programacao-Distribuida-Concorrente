@@ -5,7 +5,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import contracts.Callback;
 import contracts.Execucao;
 
 public class ServidorExecucaoImpl implements Execucao {
@@ -42,7 +41,7 @@ public class ServidorExecucaoImpl implements Execucao {
 	}
 
 	@Override
-	public void execute(Callback<Object> tarefa) throws RemoteException {
+	public void execute(Runnable tarefa) throws RemoteException {
 		this.pool.submit(tarefa);		
 	}	
 	
