@@ -6,6 +6,7 @@ import java.rmi.AccessException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 
 import contracts.Execucao;
 
@@ -31,9 +32,10 @@ public class ServidorExecucaoMain {
 			System.setSecurityManager(new SecurityManager());
 		}
 		
-		Execucao servidorExecucao = null;
+		ServidorExecucaoImpl servidorExecucao = new ServidorExecucaoImpl(numThreads);
+		Execucao servidorExecucaoStub = null;
 		try {
-			servidorExecucao = new ServidorExecucaoImpl(numThreads);
+			servidorExecucaoStub = (Execucao) UnicastRemoteObject.exportObject(servidorExecucao, 0);
 		} catch (RemoteException e) {
 			throw new RemoteException("Erro ao gerar objeto remoto do Servidor de Execucao",e);
 		}
@@ -50,8 +52,8 @@ public class ServidorExecucaoMain {
 		}
 
 		try {
-			registry.rebind(webService, servidorExecucao);
-			System.out.println(webService + " está ativado na porta " + port + " com "+ numThreads + " disponiveis!");
+			registry.rebind(webService, servidorExecucaoStub);
+			System.out.println(webService + " está ativado na porta " + port + " com "+ numThreads + " threads disponiveis!");
 		} catch (AccessException e) {
 			throw new AccessException("Erro de permissão para executar ação de rebind para " + webService 
 					+ " no RMIRegistry em " + port + ":" + host, e);

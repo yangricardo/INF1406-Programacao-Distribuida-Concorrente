@@ -1,4 +1,4 @@
-package model;
+package contracts;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,7 +8,6 @@ public class ConjuntoMatrizes implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
 	int dimMatrices;
 	int numMatrices;
 	ArrayList<Matrix> matrices;

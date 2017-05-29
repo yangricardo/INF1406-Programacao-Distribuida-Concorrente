@@ -8,9 +8,9 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Scanner;
 
+import contracts.ConjuntoMatrizes;
+import contracts.Matrix;
 import contracts.ProdutorInterface;
-import model.ConjuntoMatrizes;
-import model.Matrix;
 
 public class Produtor implements ProdutorInterface {
 	

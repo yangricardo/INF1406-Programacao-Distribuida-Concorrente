@@ -1,4 +1,4 @@
-package model;
+package contracts;
 
 import java.io.Serializable;
 import java.util.ArrayList;

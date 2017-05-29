@@ -1,5 +1,6 @@
 package inf1406_trabalho3_1212206_consumidor;
 
+import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.rmi.AccessException;
@@ -10,14 +11,16 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 import contracts.Configuracao;
+import contracts.ConjuntoMatrizes;
 import contracts.Execucao;
+import contracts.ProdutorInterface;
 
 public class ConsumidorMain {
 
 	private static Registry registry = null;
 	private static Configuracao configStub = null;
 	private static Execucao execucaoStub = null;
-	//private static Produtor produtorStub = null;
+	private static ProdutorInterface produtorStub = null;
 
 	private static void exportConfig(int portConsumidorConfig, String webServiceConfig) throws RemoteException {
 
@@ -75,17 +78,30 @@ public class ConsumidorMain {
 	}
 	
 	private static void getProdutor(String hostProdutor, int portProdutor) throws RemoteException, NotBoundException{
-
+		//Recuperamos o registro do produtor
 		try {
 			registry = LocateRegistry.getRegistry(hostProdutor, portProdutor);
 		} catch (RemoteException e) {
 			throw new RemoteException("RMIRegistry de "+hostProdutor+":"+portProdutor+" indisponivel", e);
 		}
-
-		//recebe referencia para o objeto remoto do servidor de execução
+		//Recuperamos o objeto remoto específico do registro do Produto
 		try {
-			//TODO execucaoStub ===> produtorStub
-			execucaoStub = (Execucao) registry.lookup("Produtor");
+			produtorStub = (ProdutorInterface) registry.lookup("Produtor");
+			
+			//Obtendo um conjunto de matrizes do produtor
+			ConjuntoMatrizes conjunto = new ConjuntoMatrizes();
+			try {
+				conjunto = produtorStub.obtemMatrizes();
+				if(conjunto != null) {
+					conjunto.print();					
+				}
+				
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
 		} catch (AccessException e) {
 			throw new AccessException("Erro de permissão", e);
 		} catch (RemoteException e) {
@@ -111,7 +127,7 @@ public class ConsumidorMain {
 					+ "\\Host_Produtor \\Port_Produtor " + "\\Host_Execucao \\Port_Execucao ");
 		}
 
-		int portConsumidor = 1099;
+		int portConsumidor = 1100;
 		String hostProdutor = args[0];
 		int portProdutor = Integer.parseInt(args[1]);
 		String hostExecucao = args[2];
