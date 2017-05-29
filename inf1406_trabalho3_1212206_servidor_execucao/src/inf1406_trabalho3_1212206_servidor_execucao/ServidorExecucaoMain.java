@@ -37,7 +37,7 @@ public class ServidorExecucaoMain {
 		try {
 			servidorExecucaoStub = (Execucao) UnicastRemoteObject.exportObject(servidorExecucao, 0);
 		} catch (RemoteException e) {
-			throw new RemoteException("Erro ao gerar objeto remoto do Servidor de Execucao",e);
+			throw new RemoteException("Erro ao gerar objeto remoto do Servidor de Execucao", e);
 		}
 
 		Registry registry = null;

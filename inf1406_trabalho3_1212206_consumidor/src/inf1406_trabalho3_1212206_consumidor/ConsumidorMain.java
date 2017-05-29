@@ -87,21 +87,6 @@ public class ConsumidorMain {
 		//Recuperamos o objeto remoto específico do registro do Produto
 		try {
 			produtorStub = (ProdutorInterface) registry.lookup("Produtor");
-			
-			//Obtendo um conjunto de matrizes do produtor
-			ConjuntoMatrizes conjunto = new ConjuntoMatrizes();
-			try {
-				conjunto = produtorStub.obtemMatrizes();
-				if(conjunto != null) {
-					conjunto.print();					
-				}
-				
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			
 		} catch (AccessException e) {
 			throw new AccessException("Erro de permissão", e);
 		} catch (RemoteException e) {
@@ -111,13 +96,13 @@ public class ConsumidorMain {
 		}		
 	}
 	
-
 	public static void main(String[] args) {
 
 		Path policy = Paths.get(System.getProperty("user.dir"), "consumidor.policy");
 		Path codeBase = Paths.get(System.getProperty("java.class.path"));
 		System.setProperty("java.security.policy", policy.toUri().toString());
 		System.setProperty("java.rmi.server.codebase", codeBase.toUri().toString());
+		System.setProperty("java.rmi.server.useCodebaseOnly", "false");
 		if (System.getSecurityManager() == null) {
 			System.setSecurityManager(new SecurityManager());
 		}
@@ -142,7 +127,20 @@ public class ConsumidorMain {
 			System.exit(1);
 		}
 			
-		
+		//Obtendo um conjunto de matrizes do produtor
+		ConjuntoMatrizes conjunto = null;
+		try {
+			conjunto = produtorStub.obtemMatrizes();
+			if(conjunto != null) {
+				conjunto.print();
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 

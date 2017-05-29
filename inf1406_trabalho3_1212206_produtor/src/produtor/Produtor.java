@@ -18,6 +18,7 @@ public class Produtor implements ProdutorInterface {
 	private File file;
 	private ArrayList<ConjuntoMatrizes> listaConjuntos;
 	private Iterator<ConjuntoMatrizes> it;
+	private Object mutex = new Object();
 	
 	public Produtor(String[] args) {
 		this.file = new File(args[0]);
@@ -30,7 +31,7 @@ public class Produtor implements ProdutorInterface {
             //Para cada conjunto de matrizes especificado
 			while(inLista.hasNextLine()) {
 				String line = inLista.nextLine();
-				ConjuntoMatrizes conjunto = new ConjuntoMatrizes();
+				ConjuntoMatrizes conjunto = new ConjuntoMatrizesImpl();
 	            String[] argumentosConjunto = line.split(" ");
 				//Recuperando os parametros de entrada
 				File file = new File(argumentosConjunto[0]);
@@ -40,7 +41,7 @@ public class Produtor implements ProdutorInterface {
 				
 				while(inConjunto.hasNextLine()) {
 		            //Enquanto houver matrizes no arquivo
-		            for(int i = 0; i <= quantMatrizes; i++) {
+		            for(int i = 0; i < quantMatrizes; i++) {
 		            	conjunto.appendMatrix(construirMatriz(inConjunto, size));
 		            }
 				}
@@ -64,15 +65,17 @@ public class Produtor implements ProdutorInterface {
 
 	@Override
 	public ConjuntoMatrizes obtemMatrizes() throws RemoteException {
-		if(it.hasNext()) {
-			return it.next();			
+		synchronized(mutex) {			
+			if(it.hasNext()) {
+				return it.next();			
+			}
+			return null;
 		}
-		return null;
 	}
 
     private static Matrix construirMatriz(Scanner in, int size) throws FileNotFoundException {
 
-        Matrix matriz = new Matrix();
+        Matrix  matriz = new MatrixImpl();
         
         for(int i = 0; i < size; i++) {
             for(int j = 0; j < size; j++) {

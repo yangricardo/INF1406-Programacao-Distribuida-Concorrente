@@ -1,9 +1,11 @@
-package contracts;
+package produtor;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ConjuntoMatrizes implements Serializable {
+import contracts.ConjuntoMatrizes;
+import contracts.Matrix;
+
+public class ConjuntoMatrizesImpl implements ConjuntoMatrizes {
 	/**
 	 * 
 	 */
@@ -12,22 +14,26 @@ public class ConjuntoMatrizes implements Serializable {
 	int numMatrices;
 	ArrayList<Matrix> matrices;
 	
-	public ConjuntoMatrizes() {
+	public ConjuntoMatrizesImpl() {
 		super();
 		matrices = new ArrayList<Matrix>();
 	}
 
-	public ConjuntoMatrizes(ArrayList<Matrix> matrices) {
+	public ConjuntoMatrizesImpl(ArrayList<Matrix> matrices) {
 		super();
 		this.matrices = matrices;
+	}
+	
+	public int getDimMatrices() {
+		return this.dimMatrices;
+	}
+	
+	public int getNumMatrices() {
+		return this.numMatrices;
 	}
 
 	public ArrayList<Matrix> getMatrices() {
 		return matrices;
-	}
-	
-	public void setMatrices(ArrayList<Matrix> matrices) {
-		this.matrices = matrices;
 	}
 	
 	public Matrix getMatrix(int i){
@@ -38,9 +44,9 @@ public class ConjuntoMatrizes implements Serializable {
 		matrices.add(matrix);
 	}
 	
-	public void putResultedMatrix(int matrix1,int matrix2, Matrix resultedMatrix){
-		matrices.set(matrix1, resultedMatrix);
-		matrices.remove(matrix2);
+	public void putResultedMatrix(Matrix resultedMatrix){
+		matrices.set(0, resultedMatrix);
+		matrices.remove(1);
 	}
 	
 	public void print(){
