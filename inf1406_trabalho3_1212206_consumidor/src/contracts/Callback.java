@@ -1,8 +1,8 @@
 package contracts;
 
-import java.io.Serializable;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface Callback extends Serializable,Runnable {
+public interface Callback extends Remote {
 	void entregaResultado(Resultado resultado) throws RemoteException;
 }
