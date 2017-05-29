@@ -17,8 +17,8 @@ public class AdditionServer {
 		try {
 			Addition hello = new Addition();
 			AdditionInterface stub = (AdditionInterface) UnicastRemoteObject.exportObject(hello, 0);
-			Registry registy = LocateRegistry.createRegistry(1100);
-			registy.rebind("Add", stub);
+			Registry registry = LocateRegistry.createRegistry(1100);
+			registry.rebind("Add", stub);
 			
 			System.out.println("AdditionServer está pronto!");
 		} catch (RemoteException e) {
