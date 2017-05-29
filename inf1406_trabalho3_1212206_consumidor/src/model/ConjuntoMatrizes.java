@@ -1,9 +1,14 @@
-package inf1406_trabalho3_1212206_produtor.model;
+package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ConjuntoMatrizes implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	int dimMatrices;
 	int numMatrices;
 	ArrayList<Matrix> matrices;

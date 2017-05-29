@@ -1,4 +1,4 @@
-package inf1406_trabalho3_1212206_produtor;
+package produtor;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -8,17 +8,20 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
+import contracts.ProdutorInterface;
+
 public class ProdutorServer {
 
 	public static void main(String[] args) {
 		String host = "localhost";
-		int port = 1099;
+		int port = 1101;
 		String webService = "Produtor";
 		Path policy = Paths.get(System.getProperty("user.dir"), "produtor.policy");
 		Path codeBase = Paths.get(System.getProperty("java.class.path"));
 
 		System.setProperty("java.security.policy", policy.toUri().toString());
 		System.setProperty("java.rmi.server.codebase", codeBase.toUri().toString());
+		System.setProperty("java.rmi.server.hostname", "127.0.0.1");
 		//System.setProperty("java.rmi.server.useCodebaseOnly", "false");
 
 		if (System.getSecurityManager() == null) {
@@ -37,7 +40,7 @@ public class ProdutorServer {
 
 		Registry registry = null;
 		try {
-			registry = LocateRegistry.createRegistry(1100);
+			registry = LocateRegistry.createRegistry(port);
 		} catch (RemoteException e) {
 			try {
 				registry = LocateRegistry.getRegistry(port);

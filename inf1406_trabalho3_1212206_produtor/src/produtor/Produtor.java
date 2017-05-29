@@ -1,4 +1,4 @@
-package inf1406_trabalho3_1212206_produtor;
+package produtor;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,8 +8,9 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Scanner;
 
-import inf1406_trabalho3_1212206_produtor.model.ConjuntoMatrizes;
-import inf1406_trabalho3_1212206_produtor.model.Matrix;
+import contracts.ProdutorInterface;
+import model.ConjuntoMatrizes;
+import model.Matrix;
 
 public class Produtor implements ProdutorInterface {
 	
@@ -21,7 +22,6 @@ public class Produtor implements ProdutorInterface {
 	public Produtor(String[] args) {
 		this.file = new File(args[0]);
 		this.listaConjuntos = new ArrayList<ConjuntoMatrizes>();
-		this.it = this.listaConjuntos.iterator();
 		
         try {
         	//Lemos do arquivo principal matrizes.txt
@@ -56,6 +56,7 @@ public class Produtor implements ProdutorInterface {
 			e.printStackTrace();
 		}
 
+		this.it = this.listaConjuntos.iterator();
 		for(ConjuntoMatrizes c : listaConjuntos) {
 			c.print();
 		}
@@ -63,7 +64,10 @@ public class Produtor implements ProdutorInterface {
 
 	@Override
 	public ConjuntoMatrizes obtemMatrizes() throws RemoteException {
-		return it.next();
+		if(it.hasNext()) {
+			return it.next();			
+		}
+		return null;
 	}
 
     private static Matrix construirMatriz(Scanner in, int size) throws FileNotFoundException {

@@ -1,8 +1,9 @@
-package inf1406_trabalho3_1212206_produtor.model;
+package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Matrix {
+public class Matrix implements Serializable {
 	
 	private ArrayList<ArrayList<Double>> matrix;
 
