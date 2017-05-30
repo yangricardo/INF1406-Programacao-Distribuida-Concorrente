@@ -7,6 +7,8 @@ public interface ConjuntoMatrizes extends Serializable {
 
 	public int getDimMatrices();
 	
+	public void setDimMatrices(int size);
+	
 	public int getNumMatrices();
 	
 	public ArrayList<Matrix> getMatrices();

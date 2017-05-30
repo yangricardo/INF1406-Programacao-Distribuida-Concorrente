@@ -13,6 +13,7 @@ import java.rmi.server.UnicastRemoteObject;
 import contracts.Configuracao;
 import contracts.ConjuntoMatrizes;
 import contracts.Execucao;
+import contracts.Matrix;
 import contracts.ProdutorInterface;
 
 public class ConsumidorMain {
@@ -131,8 +132,25 @@ public class ConsumidorMain {
 		ConjuntoMatrizes conjunto = null;
 		try {
 			conjunto = produtorStub.obtemMatrizes();
-			if(conjunto != null) {
-				conjunto.print();
+			
+			int dim = conjunto.getDimMatrices();
+			Matrix matrix1 = conjunto.getMatrices().get(0);
+			Matrix matrix2 = conjunto.getMatrices().get(1);
+			matrix1.print();
+			matrix2.print();
+			System.out.println(dim);
+			for(int i = 0; i < dim; i++) {
+				for(int j = 0; j < dim; j++) {
+					//ScalarProduct task = new ScalarProduct(i, j, dim, matrix1, matrix2);
+					ScalarProduct task = new ScalarProduct();
+					try {
+						execucaoStub.execute(task);
+						System.out.println("Servidor executou! (?)");
+					} catch (RemoteException e){
+						System.out.println("Servidor de Execução indiponível");
+						e.printStackTrace();
+					}
+				}
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

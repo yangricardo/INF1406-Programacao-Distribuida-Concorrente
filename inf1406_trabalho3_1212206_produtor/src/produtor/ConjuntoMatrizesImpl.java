@@ -23,9 +23,13 @@ public class ConjuntoMatrizesImpl implements ConjuntoMatrizes {
 		super();
 		this.matrices = matrices;
 	}
-	
+
 	public int getDimMatrices() {
 		return this.dimMatrices;
+	}
+	
+	public void setDimMatrices(int dimMatrices) {
+		this.dimMatrices = dimMatrices;
 	}
 	
 	public int getNumMatrices() {

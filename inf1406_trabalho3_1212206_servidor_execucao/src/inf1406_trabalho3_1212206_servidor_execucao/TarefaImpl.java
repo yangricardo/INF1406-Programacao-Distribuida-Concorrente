@@ -13,6 +13,7 @@ public class TarefaImpl implements Tarefa<Object> {
 
 	@Override
 	public void run() {
+		System.out.print("Tarefa sendo executada!");
 		try {
 			this.execute();
 		} catch (RemoteException e) {
@@ -23,8 +24,6 @@ public class TarefaImpl implements Tarefa<Object> {
 	@Override
 	public void execute() throws RemoteException {
 		// TODO Auto-generated method stub
-		
 	}
-
 	
 }

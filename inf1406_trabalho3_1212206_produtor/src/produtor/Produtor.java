@@ -31,13 +31,14 @@ public class Produtor implements ProdutorInterface {
             //Para cada conjunto de matrizes especificado
 			while(inLista.hasNextLine()) {
 				String line = inLista.nextLine();
-				ConjuntoMatrizes conjunto = new ConjuntoMatrizesImpl();
 	            String[] argumentosConjunto = line.split(" ");
 				//Recuperando os parametros de entrada
 				File file = new File(argumentosConjunto[0]);
 				int size = Integer.parseInt(argumentosConjunto[1]);
 				int quantMatrizes = Integer.parseInt(argumentosConjunto[2]);
 				Scanner inConjunto = new Scanner(file);
+				ConjuntoMatrizes conjunto = new ConjuntoMatrizesImpl();
+				conjunto.setDimMatrices(size);
 				
 				while(inConjunto.hasNextLine()) {
 		            //Enquanto houver matrizes no arquivo
