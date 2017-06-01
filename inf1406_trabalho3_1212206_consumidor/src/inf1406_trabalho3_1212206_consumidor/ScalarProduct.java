@@ -8,7 +8,7 @@ import contracts.Matrix;
 import contracts.Resultado;
 import contracts.Tarefa;
 
-public class ScalarProduct implements Tarefa<Resultado> {
+public class ScalarProduct implements Tarefa {
 
 	private static final long serialVersionUID = 1L;
 	
