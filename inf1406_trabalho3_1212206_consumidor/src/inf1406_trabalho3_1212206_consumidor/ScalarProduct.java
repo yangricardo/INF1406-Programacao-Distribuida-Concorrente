@@ -3,14 +3,17 @@ package inf1406_trabalho3_1212206_consumidor;
 import java.rmi.RemoteException;
 
 import contracts.Callback;
-//import contracts.Matrix;
+import contracts.Matrix;
 import contracts.Resultado;
+import contracts.ScalarProd;
 import contracts.Tarefa;
+import java.rmi.Remote;
 
-public class ScalarProduct implements Tarefa<Resultado> {
+
+public class ScalarProduct implements Remote, Tarefa<Resultado>, ScalarProd {
 
 	private static final long serialVersionUID = 1L;
-	/*
+	
 	private int line;
 	private int column;
 	private int matricesDimension;
@@ -34,10 +37,12 @@ public class ScalarProduct implements Tarefa<Resultado> {
 		System.out.println(resultCell);
 	}
 
+	/*
 	@Override
 	public void entregaResultado(Resultado resultado) throws RemoteException {
 		resultado.setResultCell(resultCell);		
 	}
+	*/
 	
 	public void print() {
 		System.out.println(this.resultCell);
@@ -47,19 +52,5 @@ public class ScalarProduct implements Tarefa<Resultado> {
 	public void execute() throws RemoteException {
 		// TODO Auto-generated method stub
 		run();
-	}
-	*/
-
-	@Override
-	public void run() {
-		System.out.println("RUNNING");
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void execute() throws RemoteException {
-		System.out.println("EXECUTING");
-		// TODO Auto-generated method stub
 	}
 }

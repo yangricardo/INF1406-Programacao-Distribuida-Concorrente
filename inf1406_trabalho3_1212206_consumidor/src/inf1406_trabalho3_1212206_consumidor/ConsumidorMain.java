@@ -141,8 +141,7 @@ public class ConsumidorMain {
 			System.out.println(dim);
 			for(int i = 0; i < dim; i++) {
 				for(int j = 0; j < dim; j++) {
-					//ScalarProduct task = new ScalarProduct(i, j, dim, matrix1, matrix2);
-					ScalarProduct task = new ScalarProduct();
+					ScalarProduct task = new ScalarProduct(i, j, dim, matrix1, matrix2);
 					try {
 						execucaoStub.execute(task);
 						System.out.println("Servidor executou! (?)");

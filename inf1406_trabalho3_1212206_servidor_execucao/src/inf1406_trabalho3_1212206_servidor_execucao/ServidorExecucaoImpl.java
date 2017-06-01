@@ -43,7 +43,7 @@ public class ServidorExecucaoImpl implements Execucao {
 	}
 
 	@Override
-	public void execute(Tarefa<Resultado> tarefa) throws RemoteException {
+	public <T> void execute(Tarefa<T> tarefa) throws RemoteException {
 		this.pool.submit(tarefa);		
 	}	
 	
