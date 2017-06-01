@@ -10,18 +10,19 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
+import contracts.Callback;
 import contracts.Configuracao;
 import contracts.ConjuntoMatrizes;
 import contracts.Execucao;
 import contracts.Matrix;
-import contracts.ProdutorInterface;
+import contracts.Produtor;
 
 public class ConsumidorMain {
 
 	private static Registry registry = null;
 	private static Configuracao configStub = null;
 	private static Execucao execucaoStub = null;
-	private static ProdutorInterface produtorStub = null;
+	private static Produtor produtorStub = null;
 
 	private static void exportConfig(int portConsumidorConfig, String webServiceConfig) throws RemoteException {
 
@@ -87,7 +88,7 @@ public class ConsumidorMain {
 		}
 		//Recuperamos o objeto remoto específico do registro do Produto
 		try {
-			produtorStub = (ProdutorInterface) registry.lookup("Produtor");
+			produtorStub = (Produtor) registry.lookup("Produtor");
 		} catch (AccessException e) {
 			throw new AccessException("Erro de permissão", e);
 		} catch (RemoteException e) {
@@ -141,8 +142,8 @@ public class ConsumidorMain {
 			System.out.println(dim);
 			for(int i = 0; i < dim; i++) {
 				for(int j = 0; j < dim; j++) {
-					//ScalarProduct task = new ScalarProduct(i, j, dim, matrix1, matrix2);
-					ScalarProduct task = new ScalarProduct();
+					Callback callbackTask = new CallbackImpl();
+					ScalarProduct task = new ScalarProduct(i, j, dim, matrix1, matrix2,callbackTask);
 					try {
 						execucaoStub.execute(task);
 						System.out.println("Servidor executou! (?)");
@@ -152,9 +153,6 @@ public class ConsumidorMain {
 					}
 				}
 			}
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,2 +1,0 @@
-C:\Users\verdeja\workspace\INF1406-Programacao-Distribuida-Concorrente\inf1406_trabalho3_1212206_produtor\src\matrizes1.txt 2 3
-C:\Users\verdeja\workspace\INF1406-Programacao-Distribuida-Concorrente\inf1406_trabalho3_1212206_produtor\src\matrizes2.txt 2 3

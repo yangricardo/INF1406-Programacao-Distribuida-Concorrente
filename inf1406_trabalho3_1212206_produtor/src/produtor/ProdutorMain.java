@@ -8,10 +8,10 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-import contracts.ProdutorInterface;
+import contracts.Produtor;
 
-public class ProdutorServer {
-
+public class ProdutorMain {
+	
 	public static void main(String[] args) {
 		String host = "localhost";
 		int port = 1101;
@@ -22,20 +22,24 @@ public class ProdutorServer {
 		System.setProperty("java.security.policy", policy.toUri().toString());
 		System.setProperty("java.rmi.server.codebase", codeBase.toUri().toString());
 		System.setProperty("java.rmi.server.hostname", "127.0.0.1");
-		//System.setProperty("java.rmi.server.useCodebaseOnly", "false");
 
 		if (System.getSecurityManager() == null) {
 			System.setSecurityManager(new SecurityManager());
 		}
 
-		Produtor produtor = new Produtor(args);
-		ProdutorInterface stub = null;
+		if(args.length != 1){
+			System.err.println("Coloque o nome/caminho do arquivo de matrizes");
+			System.exit(1);
+		}
+		
+		ProdutorImpl produtor = new ProdutorImpl(args);
+		Produtor stub = null;
 		try {
-			stub = (ProdutorInterface) UnicastRemoteObject.exportObject(produtor, 0);				
+			stub = (Produtor) UnicastRemoteObject.exportObject(produtor, 0);				
 		}
 		catch (RemoteException e) {
 			System.err.println("Erro ao gerar objeto remoto");
-			e.printStackTrace();
+			System.exit(1);
 		}
 
 		Registry registry = null;
@@ -46,6 +50,7 @@ public class ProdutorServer {
 				registry = LocateRegistry.getRegistry(port);
 			} catch (RemoteException e1) {
 				System.err.println("Erro ao receber referencia para o RMIRegistry na porta " + port);
+				System.exit(1);
 			}
 		}
 		try {
@@ -54,12 +59,10 @@ public class ProdutorServer {
 		} catch (AccessException e) {
 			System.err.println("Erro de permissão para executar ação de rebind para " + webService
 					+ " no RMIRegistry em " + port + ":" + host);
-			e.printStackTrace();
+			System.exit(1);
 		} catch (RemoteException e) {
 			System.err.println("Erro ao exportar stub de " + webService + " no RMIRegistry em " + port + ":" + host);
-			e.printStackTrace();
+			System.exit(1);
 		}		
-	
 	}
-
 }

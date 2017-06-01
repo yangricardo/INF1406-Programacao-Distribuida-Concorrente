@@ -3,6 +3,7 @@ package inf1406_trabalho3_1212206_consumidor;
 import java.rmi.RemoteException;
 
 import contracts.Callback;
+import contracts.Matrix;
 //import contracts.Matrix;
 import contracts.Resultado;
 import contracts.Tarefa;
@@ -10,33 +11,21 @@ import contracts.Tarefa;
 public class ScalarProduct implements Tarefa<Resultado> {
 
 	private static final long serialVersionUID = 1L;
-	/*
+	
 	private int line;
 	private int column;
 	private int matricesDimension;
 	private Matrix matrix1, matrix2;
 	private Double resultCell;
+	private Callback callback;
 	
-	public ScalarProduct(int line, int column,int matricesDimension,Matrix matrix1, Matrix matrix2) {
+	public ScalarProduct(int line, int column,int matricesDimension,Matrix matrix1, Matrix matrix2, Callback callback) {
 		this.line = line;
 		this.column = column;
 		this.matricesDimension = matricesDimension;
 		this.matrix1 = matrix1;
 		this.matrix2 = matrix2;
-	}
-
-	@Override
-	public void run() {
-		resultCell = 0.0;
-		for(int i = 0; i < matricesDimension; i++){
-			resultCell += matrix1.getMatrixCell(line, i)*matrix2.getMatrixCell(i, column);
-		}
-		System.out.println(resultCell);
-	}
-
-	@Override
-	public void entregaResultado(Resultado resultado) throws RemoteException {
-		resultado.setResultCell(resultCell);		
+		this.callback = callback;
 	}
 	
 	public void print() {
@@ -44,22 +33,26 @@ public class ScalarProduct implements Tarefa<Resultado> {
 	}
 
 	@Override
-	public void execute() throws RemoteException {
-		// TODO Auto-generated method stub
-		run();
-	}
-	*/
-
-	@Override
 	public void run() {
-		System.out.println("RUNNING");
-		// TODO Auto-generated method stub
-		
+		try {
+			this.execute();
+		} catch (RemoteException e) {
+			try {
+				this.callback.entregaResultado(null);
+				System.err.println("Erro ao calcular M["+this.line+","+this.column+"]:\n"+e);
+			} catch (RemoteException e1) {
+				System.err.println("Erro de acesso remoto ao objeto callback passado:\n"+e1);
+			}
+		}	
 	}
 
 	@Override
 	public void execute() throws RemoteException {
-		System.out.println("EXECUTING");
-		// TODO Auto-generated method stub
+		resultCell = 0.0;
+		for(int i = 0; i < matricesDimension; i++){
+			resultCell += matrix1.getMatrixCell(line, i)*matrix2.getMatrixCell(i, column);
+		}
+		Resultado resultado = new ResultadoImpl(line, column, resultCell);
+		callback.entregaResultado(resultado);
 	}
 }

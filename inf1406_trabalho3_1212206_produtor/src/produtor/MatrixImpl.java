@@ -22,7 +22,21 @@ public class MatrixImpl implements Matrix {
 		super();
 		this.matrix = matrix;
 	}
+	
+	public void setDimension(int dimension){
+		for(int i = 0; i < dimension; i++){
+			ArrayList<Double> line = new ArrayList<Double>();
+			for(int j = 0; j < dimension; j++){
+				line.add(null);
+			}	
+			matrix.add(line);
+		}
+	}
 
+	public void setValue(int line, int column, Double value){
+		matrix.get(line).set(column, value);
+	}
+	
 	public ArrayList<ArrayList<Double>> getMatrix() {
 		return matrix;
 	}

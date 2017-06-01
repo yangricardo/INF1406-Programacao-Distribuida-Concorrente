@@ -6,8 +6,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import contracts.Execucao;
-import contracts.Resultado;
-import contracts.Tarefa;
 
 public class ServidorExecucaoImpl implements Execucao {
 
@@ -43,7 +41,7 @@ public class ServidorExecucaoImpl implements Execucao {
 	}
 
 	@Override
-	public void execute(Tarefa<Resultado> tarefa) throws RemoteException {
+	public void execute(Runnable tarefa) throws RemoteException {
 		this.pool.submit(tarefa);		
 	}	
 	
