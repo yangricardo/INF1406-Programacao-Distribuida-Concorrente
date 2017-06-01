@@ -1,4 +1,4 @@
-package inf1406_trabalho3_1212206_servidor_execucao;
+package main;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

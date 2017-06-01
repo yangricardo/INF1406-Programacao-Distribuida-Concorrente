@@ -1,4 +1,4 @@
-package inf1406_trabalho3_1212206_consumidor;
+package main;
 
 import contracts.Resultado;
 
@@ -17,16 +17,29 @@ public class ResultadoImpl implements Resultado {
 		this.resultado = resultado;
 	}
 
+	@Override
 	public Double getResultado() {
 		return resultado;
 	}
 
+	@Override
 	public int getLine() {
 		return line;
 	}
 
+	@Override
 	public int getColumn() {
 		return column;
+	}
+
+	@Override
+	public void print() {
+		System.out.println("["+this.line+","+this.column+"]: "+this.resultado);		
+	}
+
+	@Override
+	public void setResultado(Double resultado) {
+		this.resultado = resultado;		
 	}
 
 }

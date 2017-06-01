@@ -1,6 +1,7 @@
-package inf1406_trabalho3_1212206_consumidor;
+package main;
 
 import java.rmi.RemoteException;
+import java.util.concurrent.Semaphore;
 
 import contracts.Callback;
 import contracts.Matrix;
@@ -17,14 +18,16 @@ public class ScalarProduct implements Tarefa {
 	private Matrix matrix1, matrix2;
 	private Double resultCell;
 	private Callback callback;
+	private Semaphore sema;
 	
-	public ScalarProduct(int line, int column,int matricesDimension,Matrix matrix1, Matrix matrix2, Callback callback) {
+	public ScalarProduct(int line, int column,int matricesDimension,Matrix matrix1, Matrix matrix2, Callback callback, Semaphore sema) {
 		this.line = line;
 		this.column = column;
 		this.matricesDimension = matricesDimension;
 		this.matrix1 = matrix1;
 		this.matrix2 = matrix2;
 		this.callback = callback;
+		this.sema = sema;
 	}
 	
 	public void print() {
@@ -35,6 +38,12 @@ public class ScalarProduct implements Tarefa {
 	public void run() {
 		try {
 			this.execute();
+			System.out.println(resultCell);
+			System.out.println("Releasing!");
+			Resultado resultado = callback.getResultado();
+			
+			resultado.setResultado(resultCell);
+			callback.entregaResultado(resultado);	
 		} catch (RemoteException e) {
 			try {
 				this.callback.entregaResultado(null);
@@ -50,8 +59,6 @@ public class ScalarProduct implements Tarefa {
 		resultCell = 0.0;
 		for(int i = 0; i < matricesDimension; i++){
 			resultCell += matrix1.getMatrixCell(line, i)*matrix2.getMatrixCell(i, column);
-		}
-		Resultado resultado = new ResultadoImpl(line, column, resultCell);
-		callback.entregaResultado(resultado);
+		}	
 	}
 }

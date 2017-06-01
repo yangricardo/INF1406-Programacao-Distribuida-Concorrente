@@ -1,26 +1,18 @@
-package produtor;
+package main;
 
 import java.util.ArrayList;
 
 import contracts.Matrix;
 
 public class MatrixImpl implements Matrix {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 2L;
 	
 	private ArrayList<ArrayList<Double>> matrix;
 
 	public MatrixImpl() {
 		super();
 		matrix = new ArrayList<ArrayList<Double>>();
-	}
-	
-	public MatrixImpl(ArrayList<ArrayList<Double>> matrix) {
-		super();
-		this.matrix = matrix;
 	}
 	
 	public void setDimension(int dimension){
@@ -44,27 +36,7 @@ public class MatrixImpl implements Matrix {
 	public Double getMatrixCell(int line, int column){
 		return matrix.get(line).get(column);
 	}
-	
-    public void addToInnerArray(int index, Double value) {
-        while (index >= this.matrix.size()) {
-            this.matrix.add(new ArrayList<Double>());
-        }
-        this.matrix.get(index).add(value);
-    }
-
-    public void addToInnerArray(int line, int column, Double value) {
-        while (line >= this.matrix.size()) {
-            this.matrix.add(new ArrayList<Double>());
-        }
-
-        ArrayList<Double> inner = this.matrix.get(line);
-        while (column >= inner.size()) {
-            inner.add(null);
-        }
-
-        inner.set(column, value);
-    }
-		
+			
 	@Override
 	public String toString() {
 		StringBuilder sMatrix = new StringBuilder();
@@ -79,5 +51,5 @@ public class MatrixImpl implements Matrix {
 
 	public void print(){
 		System.out.println(this.toString());
-	}	
+	}
 }

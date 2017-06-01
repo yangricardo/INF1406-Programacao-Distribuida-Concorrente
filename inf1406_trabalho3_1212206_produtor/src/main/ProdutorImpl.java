@@ -1,4 +1,4 @@
-package produtor;
+package main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -81,19 +81,4 @@ public class ProdutorImpl implements Produtor {
 			return null;
 		}
 	}
-
-    private Matrix construirMatriz(int size) throws FileNotFoundException {
-
-        Matrix  matriz = new MatrixImpl();
-        
-        for(int i = 0; i < size; i++) {
-            for(int j = 0; j < size; j++) {
-            	if(this.inConjunto.hasNextDouble()) {
-            		matriz.addToInnerArray(i, j, this.inConjunto.nextDouble());
-            	}
-            }
-        }
-
-        return matriz;
-    }
 }

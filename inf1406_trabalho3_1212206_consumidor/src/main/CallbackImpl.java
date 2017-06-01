@@ -1,4 +1,4 @@
-package inf1406_trabalho3_1212206_consumidor;
+package main;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
@@ -11,9 +11,10 @@ public class CallbackImpl implements Callback,Serializable {
 	private static final long serialVersionUID = 1L;
 	private Resultado resultado;
 	
-	public CallbackImpl() {
+	public CallbackImpl(Resultado resultado) {
 		super();
 		this.resultado = null;
+		this.resultado = resultado;
 	}
 
 	@Override
@@ -21,7 +22,8 @@ public class CallbackImpl implements Callback,Serializable {
 		this.resultado = resultado;
 	}
 
-	public Resultado getResultado(){
+	@Override
+	public Resultado getResultado() throws RemoteException{
 		return this.resultado;
 	}
 	

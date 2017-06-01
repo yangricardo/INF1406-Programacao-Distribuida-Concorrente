@@ -1,4 +1,4 @@
-package inf1406_trabalho3_1212206_servidor_execucao;
+package main;
 
 import java.rmi.RemoteException;
 import java.util.concurrent.ExecutorService;
@@ -42,7 +42,7 @@ public class ServidorExecucaoImpl implements Execucao {
 
 	@Override
 	public void execute(Runnable tarefa) throws RemoteException {
-		this.pool.submit(tarefa);		
+		this.pool.submit(tarefa);
 	}	
 	
 }

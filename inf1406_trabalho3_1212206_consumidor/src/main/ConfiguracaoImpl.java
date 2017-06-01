@@ -1,4 +1,4 @@
-package inf1406_trabalho3_1212206_consumidor;
+package main;
 
 import java.rmi.RemoteException;
 

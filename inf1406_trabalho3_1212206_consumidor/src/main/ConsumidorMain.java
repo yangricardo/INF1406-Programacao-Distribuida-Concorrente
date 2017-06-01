@@ -1,4 +1,4 @@
-package inf1406_trabalho3_1212206_consumidor;
+package main;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -8,6 +8,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.concurrent.Semaphore;
 
 import contracts.Callback;
 import contracts.Configuracao;
@@ -15,6 +16,7 @@ import contracts.ConjuntoMatrizes;
 import contracts.Execucao;
 import contracts.Matrix;
 import contracts.Produtor;
+import contracts.Resultado;
 
 public class ConsumidorMain {
 
@@ -22,6 +24,8 @@ public class ConsumidorMain {
 	private static Configuracao configStub = null;
 	private static Execucao execucaoStub = null;
 	private static Produtor produtorStub = null;
+	private static Object mutex = new Object();
+	private static Semaphore sema = new Semaphore(0);
 
 	private static void exportConfig(int portConsumidorConfig, String webServiceConfig) throws RemoteException {
 
@@ -58,7 +62,7 @@ public class ConsumidorMain {
 		}
 	}
 
-	private static void getServidorExecucao(String hostExecucao, int portExecucao) throws NotBoundException, RemoteException {
+	private static void getServidorExecucao(String hostExecucao, int portExecucao, String servidorExecucao) throws NotBoundException, RemoteException {
 		// ***Obtenção do objeto Remoto do servidor de execucao
 		try {
 			registry = LocateRegistry.getRegistry(hostExecucao, portExecucao);
@@ -70,15 +74,15 @@ public class ConsumidorMain {
 		try {
 			execucaoStub = (Execucao) registry.lookup("Execucao");
 		} catch (AccessException e) {
-			throw new AccessException("Erro de permissão", e);
+			throw new AccessException("Erro de permissão ao obter objeto remoto Servidor Execução", e);
 		} catch (RemoteException e) {
-			throw new RemoteException("Erro ao obter objeto remoto", e);
+			throw new RemoteException("Erro ao obter objeto remoto Servidor Execução", e);
 		} catch (NotBoundException e) {
-			throw new NotBoundException("Objeto não existente no RMIRegistry de "+hostExecucao+":"+portExecucao+"!");
+			throw new NotBoundException("Objeto Servidor Execução não existente no RMIRegistry de "+hostExecucao+":"+portExecucao+"!");
 		}
 	}
 	
-	private static void getProdutor(String hostProdutor, int portProdutor) throws RemoteException, NotBoundException{
+	private static void getProdutor(String hostProdutor, int portProdutor, String produtor) throws RemoteException, NotBoundException{
 		//Recuperamos o registro do produtor
 		try {
 			registry = LocateRegistry.getRegistry(hostProdutor, portProdutor);
@@ -89,11 +93,11 @@ public class ConsumidorMain {
 		try {
 			produtorStub = (Produtor) registry.lookup("Produtor");
 		} catch (AccessException e) {
-			throw new AccessException("Erro de permissão", e);
+			throw new AccessException("Erro de permissão ao obter objeto remoto Produtor", e);
 		} catch (RemoteException e) {
-			throw new RemoteException("Erro ao obter objeto remoto", e);
+			throw new RemoteException("Erro ao obter objeto remoto Produtor", e);
 		} catch (NotBoundException e) {
-			throw new NotBoundException("Objeto não existente no RMIRegistry de "+hostProdutor+":"+portProdutor+"!");
+			throw new NotBoundException("Objeto Produtor não existente no RMIRegistry de "+hostProdutor+":"+portProdutor+"!");
 		}		
 	}
 	
@@ -121,8 +125,8 @@ public class ConsumidorMain {
 
 		try {
 			exportConfig(portConsumidor, "ConfiguracaoConsumidor");
-			getProdutor(hostProdutor, portProdutor);
-			getServidorExecucao(hostExecucao, portExecucao);
+			getProdutor(hostProdutor, portProdutor,"Produtor");
+			getServidorExecucao(hostExecucao, portExecucao,"Execucao");
 		} catch (Exception e) {
 			System.err.println(e);
 			System.exit(1);
@@ -141,22 +145,32 @@ public class ConsumidorMain {
 			System.out.println(dim);
 			for(int i = 0; i < dim; i++) {
 				for(int j = 0; j < dim; j++) {
-					Callback callbackTask = new CallbackImpl();
-					ScalarProduct task = new ScalarProduct(i, j, dim, matrix1, matrix2,callbackTask);
-					try {
-						execucaoStub.execute(task);
-						System.out.println("Servidor executou! (?)");
-					} catch (RemoteException e){
-						System.out.println("Servidor de Execução indiponível");
-						e.printStackTrace();
+					synchronized (mutex) {
+						Resultado resultado = new ResultadoImpl(i, j, 0.0);
+						sema = new Semaphore(0);
+						Callback callbackTask = new CallbackImpl(resultado);
+						ScalarProduct task = new ScalarProduct(i, j, dim, matrix1, matrix2,callbackTask, sema);
+						try {
+							execucaoStub.execute((Runnable)task);
+							
+							sema.acquire();
+							System.out.println("Liberado!");
+							
+							resultado = callbackTask.getResultado();
+							resultado.print();
+						} catch (RemoteException e){
+							System.out.println("Servidor de Execução indiponível");
+							e.printStackTrace();
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 				}
 			}
 		} catch (RemoteException e) {
 			System.err.print("Erro ao obter matrizes do produtor:\n"+e);
 			System.exit(1);
-		}
-		
+		}		
 	}
-
 }
