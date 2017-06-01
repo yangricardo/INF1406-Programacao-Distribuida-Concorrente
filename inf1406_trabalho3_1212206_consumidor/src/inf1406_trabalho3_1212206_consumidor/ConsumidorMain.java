@@ -1,6 +1,5 @@
 package inf1406_trabalho3_1212206_consumidor;
 
-import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.rmi.AccessException;
@@ -154,8 +153,8 @@ public class ConsumidorMain {
 				}
 			}
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.print("Erro ao obter matrizes do produtor:\n"+e);
+			System.exit(1);
 		}
 		
 	}
