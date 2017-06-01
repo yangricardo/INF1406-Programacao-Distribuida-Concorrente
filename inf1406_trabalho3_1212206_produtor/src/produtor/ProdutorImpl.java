@@ -31,16 +31,13 @@ public class ProdutorImpl implements Produtor {
             //Para cada conjunto de matrizes especificado
             while(inLista.hasNextLine()){
 				String line = inLista.nextLine();
-				System.out.println(line);
 				String[] argumentosConjunto = line.split(" ");
 				//Recuperando os parametros de entrada
 				File file = new File(argumentosConjunto[0]);
 				int size = Integer.parseInt(argumentosConjunto[1]);
 				int quantMatrizes = Integer.parseInt(argumentosConjunto[2]);
 				inConjunto = new Scanner(file);
-				System.out.println(file.getAbsolutePath());
-				while(inConjunto.hasNextLine())
-					System.out.println(inConjunto.nextLine());
+				
 				inConjunto = new Scanner(new File(argumentosConjunto[0]));
 				ConjuntoMatrizes conjunto = new ConjuntoMatrizesImpl();
 				conjunto.setDimMatrices(size);				
@@ -56,7 +53,6 @@ public class ProdutorImpl implements Produtor {
 		                     	}
 		                     }
 		                 }
-		            	matriz.print();
 		            	conjunto.appendMatrix(matriz);  	
 		            }
 				}
