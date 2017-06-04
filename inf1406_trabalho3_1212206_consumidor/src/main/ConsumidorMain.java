@@ -8,7 +8,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.Semaphore;
@@ -27,8 +27,7 @@ public class ConsumidorMain {
 	private static Configuracao configStub = null;
 	private static Execucao execucaoStub = null;
 	private static Produtor produtorStub = null;
-	private static Object mutex = new Object();
-	//private static Semaphore sema = new Semaphore(0);
+	private static String tableFormat = "%30s%30s%30f\n";
 
 	private static void exportConfig(int portConsumidorConfig, String webServiceConfig) throws RemoteException {
 
@@ -139,47 +138,61 @@ public class ConsumidorMain {
 		ConjuntoMatrizes conjunto = null;
 		try {
 			conjunto = produtorStub.obtemMatrizes();
-			
 			int dim = conjunto.getDimMatrices();
-			Matrix matrix1 = conjunto.getMatrices().get(0);
-			Matrix matrix2 = conjunto.getMatrices().get(1);
-			matrix1.print();
-			matrix2.print();
-			System.out.println(dim);
-			HashMap<Callback, Semaphore> tasks = new HashMap<Callback, Semaphore>();
-			for(int i = 0; i < dim; i++) {
-				for(int j = 0; j < dim; j++) {
+			int matrixIndex = 0;
+			MatrixImpl resultadoFinal = new MatrixImpl();
+			for(Matrix result : conjunto.getMatrices()) {
+				result = (MatrixImpl)result;
+				//Obtemos a matriz a ser multiplicada
+				Matrix multiplied = conjunto.getMatrices().get(matrixIndex);
+				HashMap<Callback, Semaphore> tasks = new HashMap<Callback, Semaphore>();
+				for(int i = 0; i < dim; i++) {
+					for(int j = 0; j < dim; j++) {
 						Resultado resultado = new ResultadoImpl(i, j, 0.0);
 						Semaphore sema = new Semaphore(0);
 						Callback callbackTask = new CallbackImpl(resultado, sema);
 						Callback callbackStub = (Callback) UnicastRemoteObject.exportObject(callbackTask, 0);
-						ScalarProduct task = new ScalarProduct(i, j, dim, matrix1, matrix2,callbackStub);
+						ScalarProduct task = new ScalarProduct(i, j, dim, result, multiplied,callbackStub);
 						try {
 							execucaoStub.execute((Runnable)task);
 							tasks.put(callbackTask, sema);
-
+							
 						} catch (RemoteException e){
 							System.out.println("Servidor de Execução indiponível");
 							e.printStackTrace();
 						}
-				}
-			}				
-			Iterator<Callback> callbacks = tasks.keySet().iterator();
-			while(callbacks.hasNext()) {
-				Callback c = callbacks.next();
-				tasks.get(c).acquire();
+					}
+				}				
+				Iterator<Callback> callbacks = tasks.keySet().iterator();
+				System.out.println("\n-----------------------------");
+				System.out.format("Execução das tarefas - Matrizes %d & %d\n", matrixIndex, matrixIndex + 1);
+				System.out.println("-----------------------------");
+				System.out.format("%30s%30s%30s\n", "Timestamp", "Célula", "Resultado");
 				
-				Resultado resultado = c.getResultado();
-				resultado.print();
-				callbacks.remove();
+				while(callbacks.hasNext()) {
+					Callback c = callbacks.next();
+					tasks.get(c).acquire();
+					
+					Resultado resultado = c.getResultado();
+					String celula = "["+resultado.getLine()+","+resultado.getColumn()+"]";
+					System.out.format(ConsumidorMain.tableFormat, new Timestamp(System.currentTimeMillis()), celula, resultado.getResultado());
+					result.setValue(resultado.getLine(), resultado.getColumn(), resultado.getResultado());
+					callbacks.remove();
+				}
+				matrixIndex++;
+				resultadoFinal = (MatrixImpl)result;
+			//END for
 			}
-			
+			System.out.println("\n-----------------------------");
+			System.out.println("Resultado Final");
+			System.out.println("-----------------------------");
+			resultadoFinal.print();
 		} catch (RemoteException e) {
 			System.err.print("Erro ao obter matrizes do produtor:\n"+e);
 			System.exit(1);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
 	}
 }

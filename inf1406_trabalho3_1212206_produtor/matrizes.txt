@@ -1,2 +1,2 @@
-matrizes2.txt 8 2
+matrizes2.txt 8 3
 matrizes3.txt 2 3
