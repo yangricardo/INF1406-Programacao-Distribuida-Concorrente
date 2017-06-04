@@ -10,13 +10,13 @@ public class ConfiguracaoImpl implements Configuracao{
 	
 	public ConfiguracaoImpl() {
 		super();
-		this.intervalo = 500;
+		this.intervalo = 1000;
 	}
 
 	@Override
 	public void aplicaIntervalo(int intervalo) throws RemoteException {
 		this.intervalo = intervalo;	
-		System.out.println("****Intervalo de Consulta do Consumidor Atualizado: "+this.intervalo);
+		System.out.println("****Intervalo de Leitura do Produtor Atualizado: "+this.intervalo);
 	}
 
 	protected int getIntervalo(){

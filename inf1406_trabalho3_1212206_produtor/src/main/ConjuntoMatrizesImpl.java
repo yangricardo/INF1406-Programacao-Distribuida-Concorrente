@@ -11,7 +11,6 @@ public class ConjuntoMatrizesImpl implements ConjuntoMatrizes {
 	 */
 	private static final long serialVersionUID = 1L;
 	int dimMatrices;
-	int numMatrices;
 	ArrayList<Matrix> matrices;
 	
 	public ConjuntoMatrizesImpl() {
@@ -33,7 +32,7 @@ public class ConjuntoMatrizesImpl implements ConjuntoMatrizes {
 	}
 	
 	public int getNumMatrices() {
-		return this.numMatrices;
+		return this.matrices.size();
 	}
 
 	public ArrayList<Matrix> getMatrices() {

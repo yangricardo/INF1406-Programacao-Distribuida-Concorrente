@@ -73,14 +73,14 @@ public class ConfiguradorMain {
 			if(response.equals("1")){
 				try {
 					System.out.println("-- Aplicando intervalo do Produtor");
-					aplicaIntervalo(hostProdutor, portProdutor,"ConfigucaoProdutor");
+					aplicaIntervalo(hostProdutor, portProdutor,"ConfiguracaoProdutor");
 				} catch (RemoteException e) {
 					System.err.println(e);
 				}				
 			} else if(response.equals("2")){
 				try {
 					System.out.println("-- Aplicando intervalo do Produtor");
-					aplicaIntervalo(hostConsumidor, portConsumidor,"ConfigucaoConsumidor");
+					aplicaIntervalo(hostConsumidor, portConsumidor,"ConfiguracaoConsumidor");
 				} catch (RemoteException e) {
 					System.err.println(e);
 				}

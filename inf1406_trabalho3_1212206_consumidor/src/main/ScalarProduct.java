@@ -36,7 +36,8 @@ public class ScalarProduct implements Tarefa {
 		try {
 			this.execute();
 			System.out.println(resultCell);
-			System.out.println("Releasing!");
+			for(int i = 0; i < 1000000000; i++) {
+			}
 			Resultado resultado = callback.getResultado();
 			
 			resultado.setResultado(resultCell);
