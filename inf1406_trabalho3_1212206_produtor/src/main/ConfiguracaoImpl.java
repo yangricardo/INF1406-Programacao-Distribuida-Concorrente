@@ -10,7 +10,7 @@ public class ConfiguracaoImpl implements Configuracao{
 	
 	public ConfiguracaoImpl() {
 		super();
-		this.intervalo = 1000;
+		this.intervalo = 60000;
 	}
 
 	@Override
