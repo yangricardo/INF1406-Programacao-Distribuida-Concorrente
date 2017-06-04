@@ -149,7 +149,6 @@ public class ConsumidorMain {
 			HashMap<Callback, Semaphore> tasks = new HashMap<Callback, Semaphore>();
 			for(int i = 0; i < dim; i++) {
 				for(int j = 0; j < dim; j++) {
-					//synchronized (mutex) {
 						Resultado resultado = new ResultadoImpl(i, j, 0.0);
 						Semaphore sema = new Semaphore(0);
 						Callback callbackTask = new CallbackImpl(resultado, sema);
@@ -163,19 +162,15 @@ public class ConsumidorMain {
 							System.out.println("Servidor de Execução indiponível");
 							e.printStackTrace();
 						}
-					//}
 				}
 			}				
 			Iterator<Callback> callbacks = tasks.keySet().iterator();
 			while(callbacks.hasNext()) {
 				Callback c = callbacks.next();
-				System.out.println("Esperando!");
 				tasks.get(c).acquire();
-				System.out.println("Liberado!");
 				
 				Resultado resultado = c.getResultado();
 				resultado.print();
-				//tasks.remove(c);
 				callbacks.remove();
 			}
 			
