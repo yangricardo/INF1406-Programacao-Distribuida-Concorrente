@@ -3,10 +3,10 @@ package main;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.concurrent.Semaphore;
 
 import contracts.Callback;
@@ -24,8 +24,7 @@ public class ConsumidorImpl {
 	private Execucao execucaoStub;
 	private static String tableFormat = "%30s%30s%30f\n";
 	private ConjuntoMatrizes conjunto;
-	private List<ConjuntoMatrizes> conjuntos;
-	private Iterator<ConjuntoMatrizes> itConjuntos;
+	private ArrayList<ConjuntoMatrizes> conjuntos;
 	private Runnable requestConjunto;
 	
 	public ConsumidorImpl(Produtor produtorStub,Execucao execucaoStub) {
@@ -33,6 +32,7 @@ public class ConsumidorImpl {
 		this.requestConjunto = getConjuntoMatrizes();
 		this.produtorStub = produtorStub;
 		this.execucaoStub = execucaoStub;
+		this.conjuntos = new ArrayList<ConjuntoMatrizes>();
 	}
 
 	public Configuracao exportConfig() throws RemoteException{
@@ -54,14 +54,12 @@ public class ConsumidorImpl {
 						ConjuntoMatrizes temp = produtorStub.obtemMatrizes();
 						if(conjunto != null){
 							conjuntos.add(temp);
-							itConjuntos = conjuntos.iterator();
 						} else
 							System.err.println("Servidor Produtor sem Conjuntos de Matrizes Disponivel até o momento");
 						
 						//se há conjunto para o consumidor processar, executa a multiplicaão de matrizes
-						if(itConjuntos.hasNext()){
+						if(conjuntos.iterator().hasNext()){
 							conjunto = conjuntos.remove(0);
-							itConjuntos = conjuntos.iterator();
 							matricesMultiplication().run();
 						}
 					} catch (RemoteException e) {
