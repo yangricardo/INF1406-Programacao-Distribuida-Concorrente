@@ -148,11 +148,13 @@ public class ConsumidorMain {
 					synchronized (mutex) {
 						Resultado resultado = new ResultadoImpl(i, j, 0.0);
 						sema = new Semaphore(0);
-						Callback callbackTask = new CallbackImpl(resultado);
-						ScalarProduct task = new ScalarProduct(i, j, dim, matrix1, matrix2,callbackTask, sema);
+						Callback callbackTask = new CallbackImpl(resultado, sema);
+						Callback callbackStub = (Callback) UnicastRemoteObject.exportObject(callbackTask, 0);
+						ScalarProduct task = new ScalarProduct(i, j, dim, matrix1, matrix2,callbackStub);
 						try {
 							execucaoStub.execute((Runnable)task);
-							
+
+							System.out.println("Esperando!");
 							sema.acquire();
 							System.out.println("Liberado!");
 							
