@@ -8,6 +8,9 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.concurrent.Semaphore;
 
 import contracts.Callback;
@@ -25,7 +28,7 @@ public class ConsumidorMain {
 	private static Execucao execucaoStub = null;
 	private static Produtor produtorStub = null;
 	private static Object mutex = new Object();
-	private static Semaphore sema = new Semaphore(0);
+	//private static Semaphore sema = new Semaphore(0);
 
 	private static void exportConfig(int portConsumidorConfig, String webServiceConfig) throws RemoteException {
 
@@ -143,36 +146,45 @@ public class ConsumidorMain {
 			matrix1.print();
 			matrix2.print();
 			System.out.println(dim);
+			HashMap<Callback, Semaphore> tasks = new HashMap<Callback, Semaphore>();
 			for(int i = 0; i < dim; i++) {
 				for(int j = 0; j < dim; j++) {
-					synchronized (mutex) {
+					//synchronized (mutex) {
 						Resultado resultado = new ResultadoImpl(i, j, 0.0);
-						sema = new Semaphore(0);
+						Semaphore sema = new Semaphore(0);
 						Callback callbackTask = new CallbackImpl(resultado, sema);
 						Callback callbackStub = (Callback) UnicastRemoteObject.exportObject(callbackTask, 0);
 						ScalarProduct task = new ScalarProduct(i, j, dim, matrix1, matrix2,callbackStub);
 						try {
 							execucaoStub.execute((Runnable)task);
+							tasks.put(callbackTask, sema);
 
-							System.out.println("Esperando!");
-							sema.acquire();
-							System.out.println("Liberado!");
-							
-							resultado = callbackTask.getResultado();
-							resultado.print();
 						} catch (RemoteException e){
 							System.out.println("Servidor de Execução indiponível");
 							e.printStackTrace();
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
 						}
-					}
+					//}
 				}
+			}				
+			Iterator<Callback> callbacks = tasks.keySet().iterator();
+			while(callbacks.hasNext()) {
+				Callback c = callbacks.next();
+				System.out.println("Esperando!");
+				tasks.get(c).acquire();
+				System.out.println("Liberado!");
+				
+				Resultado resultado = c.getResultado();
+				resultado.print();
+				//tasks.remove(c);
+				callbacks.remove();
 			}
+			
 		} catch (RemoteException e) {
 			System.err.print("Erro ao obter matrizes do produtor:\n"+e);
 			System.exit(1);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}		
 	}
 }
