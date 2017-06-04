@@ -1,7 +1,6 @@
 package main;
 
 import java.rmi.RemoteException;
-import java.util.concurrent.Semaphore;
 
 import contracts.Callback;
 import contracts.Matrix;
@@ -18,16 +17,14 @@ public class ScalarProduct implements Tarefa {
 	private Matrix matrix1, matrix2;
 	private Double resultCell;
 	private Callback callback;
-	private Semaphore sema;
 	
-	public ScalarProduct(int line, int column,int matricesDimension,Matrix matrix1, Matrix matrix2, Callback callback, Semaphore sema) {
+	public ScalarProduct(int line, int column,int matricesDimension,Matrix matrix1, Matrix matrix2, Callback callback) {
 		this.line = line;
 		this.column = column;
 		this.matricesDimension = matricesDimension;
 		this.matrix1 = matrix1;
 		this.matrix2 = matrix2;
 		this.callback = callback;
-		this.sema = sema;
 	}
 	
 	public void print() {

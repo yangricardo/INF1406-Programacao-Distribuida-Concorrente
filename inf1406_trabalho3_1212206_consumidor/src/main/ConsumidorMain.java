@@ -8,7 +8,6 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.concurrent.Semaphore;
 
 import contracts.Callback;
 import contracts.Configuracao;
@@ -25,7 +24,6 @@ public class ConsumidorMain {
 	private static Execucao execucaoStub = null;
 	private static Produtor produtorStub = null;
 	private static Object mutex = new Object();
-	private static Semaphore sema = new Semaphore(0);
 
 	private static void exportConfig(int portConsumidorConfig, String webServiceConfig) throws RemoteException {
 
@@ -147,30 +145,24 @@ public class ConsumidorMain {
 				for(int j = 0; j < dim; j++) {
 					synchronized (mutex) {
 						Resultado resultado = new ResultadoImpl(i, j, 0.0);
-						sema = new Semaphore(0);
-						Callback callbackTask = new CallbackImpl(resultado);
-						ScalarProduct task = new ScalarProduct(i, j, dim, matrix1, matrix2,callbackTask, sema);
+						Callback callback = new CallbackImpl(resultado); 
+						callback = (Callback) UnicastRemoteObject.exportObject(callback, portConsumidor);
+						ScalarProduct task = new ScalarProduct(i, j, dim, matrix1, matrix2,callback);
 						try {
 							execucaoStub.execute((Runnable)task);
-							
-							sema.acquire();
-							System.out.println("Liberado!");
-							
-							resultado = callbackTask.getResultado();
+							resultado = callback.getResultado();
 							resultado.print();
+							
 						} catch (RemoteException e){
 							System.out.println("Servidor de Execução indiponível");
 							e.printStackTrace();
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
+						} 
 					}
 				}
 			}
 		} catch (RemoteException e) {
 			System.err.print("Erro ao obter matrizes do produtor:\n"+e);
 			System.exit(1);
-		}		
+		}	
 	}
 }
