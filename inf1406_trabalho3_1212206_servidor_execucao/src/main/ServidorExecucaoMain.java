@@ -12,7 +12,7 @@ import contracts.Execucao;
 
 public class ServidorExecucaoMain {
 
-	public static void main(String[] args) throws RemoteException,AccessException {
+	public static void main(String[] args) throws RemoteException,AccessException, InterruptedException {
 		
 		if(args.length != 1)
 			System.exit(1);
@@ -59,7 +59,10 @@ public class ServidorExecucaoMain {
 					+ " no RMIRegistry em " + port + ":" + host, e);
 		} catch (RemoteException e) {
 			throw new RemoteException("Erro ao exportar stub de " + webService + " no RMIRegistry em " + port + ":" + host, e);
-		}		
+		}
+		synchronized (registry) {
+			registry.wait();
+		}
 	}
 
 }

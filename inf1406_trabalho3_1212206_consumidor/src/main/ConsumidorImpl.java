@@ -22,14 +22,14 @@ public class ConsumidorImpl {
 	private volatile ConfiguracaoImpl config;
 	private Produtor produtorStub;
 	private Execucao execucaoStub;
-	private static String tableFormat = "%30s%30s%30f\n";
+	private static String tableFormat = "%30s%30s%30s\n";
 	private ConjuntoMatrizes conjunto;
 	private ArrayList<ConjuntoMatrizes> conjuntos;
-	private Runnable requestConjunto;
+	private Thread requestConjunto;
 	
 	public ConsumidorImpl(Produtor produtorStub,Execucao execucaoStub) {
 		this.config = new ConfiguracaoImpl();
-		this.requestConjunto = getConjuntoMatrizes();
+		this.requestConjunto = new Thread( getConjuntoMatrizes());
 		this.produtorStub = produtorStub;
 		this.execucaoStub = execucaoStub;
 		this.conjuntos = new ArrayList<ConjuntoMatrizes>();
@@ -40,38 +40,36 @@ public class ConsumidorImpl {
 	}
 	
 	public void runConsumidor(){
-		requestConjunto.run();
+		requestConjunto.start();
 	}
 	
 	private Runnable getConjuntoMatrizes(){
 		Runnable requestMatrices = new Runnable() {	
 		
+			//private Object MUTEXREQUEST = new Object();
+			
 			@Override
 			public void run() {
 				while(true){
-					try {
-						//tenta obter um conjunto
-						ConjuntoMatrizes temp = produtorStub.obtemMatrizes();
-						if(conjunto != null){
-							conjuntos.add(temp);
-						} else
-							System.err.println("Servidor Produtor sem Conjuntos de Matrizes Disponivel até o momento");
-						
-						//se há conjunto para o consumidor processar, executa a multiplicaão de matrizes
-						if(conjuntos.iterator().hasNext()){
-							conjunto = conjuntos.remove(0);
-							matricesMultiplication().run();
-						}
-					} catch (RemoteException e) {
-						System.err.print("Objeto Remoto do Servidor Produtor indisponivel:\n"+e);					
-					} finally{
-						//dorme por um intervalo caso nao consiga um conjunto ou apos multiplicar um conjunto		
 						try {
+							//tenta obter um conjunto
+							ConjuntoMatrizes temp = produtorStub.obtemMatrizes();
+							if(temp != null){
+								conjuntos.add(temp);
+							} 
+							//se há conjunto para o consumidor processar, executa a multiplicaão de matrizes
+							if(conjuntos.iterator().hasNext()){
+								conjunto = conjuntos.remove(0);
+								matricesMultiplication().run();
+							}
 							Thread.sleep(config.getIntervalo());
+						} catch (RemoteException e) {
+							System.err.print("Objeto Remoto do Servidor Produtor indisponivel:\n"+e);					
 						} catch (InterruptedException e) {
-							System.err.println("Erro de interrupção:\n"+e);
-						}
-					}
+							System.out.println("Erro de interrupção");
+						} 
+						
+					
 				}
 			}
 		};		
@@ -99,8 +97,15 @@ public class ConsumidorImpl {
 							//Obtem matriz a ser multiplicada
 							Matrix multiplied = conjunto.getMatrices().get(matrixIndex);
 							HashMap<Callback, Semaphore> tasks = new HashMap<Callback, Semaphore>();
+
+							System.out.println("\n-----------------------------");
+							System.out.format("Delegação das tarefas - Matrizes %d & %d\n", matrixIndex, matrixIndex + 1);
+							System.out.println("-----------------------------");
+							System.out.format("%30s%30s\n", "Timestamp", "Célula");
 							for(int i = 0; i < dim; i++) {
 								for(int j = 0; j < dim; j++) {
+									System.out.format("%30s%30s\n", new Timestamp(System.currentTimeMillis()), "["+i+","+j+"]");
+									
 									Resultado resultado = new ResultadoImpl(i, j, 0.0);
 									Semaphore sema = new Semaphore(0);
 									Callback callbackTask = new CallbackImpl(resultado, sema);
@@ -127,7 +132,7 @@ public class ConsumidorImpl {
 								
 								Resultado resultado = c.getResultado();
 								String celula = "["+resultado.getLine()+","+resultado.getColumn()+"]";
-								System.out.format(tableFormat, new Timestamp(System.currentTimeMillis()), celula, resultado.getResultado());
+								System.out.format(tableFormat, new Timestamp(System.currentTimeMillis()), celula, String.format("%.3f", resultado.getResultado()));
 								result.setValue(resultado.getLine(), resultado.getColumn(), resultado.getResultado());
 								callbacks.remove();
 							}

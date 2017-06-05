@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -18,29 +17,30 @@ public class ProdutorImpl implements Produtor {
 
 	private File file;
 	private volatile ArrayList<ConjuntoMatrizes> listaConjuntos;
-	private volatile Iterator<ConjuntoMatrizes> it;
 	private Object mutex = new Object();
 	private volatile ConfiguracaoImpl config;
-	private Runnable readerThread;
-	
+	private Thread readerThread;
+
 	public ProdutorImpl(String filenameMatrices) {
 		this.config = new ConfiguracaoImpl();
 		this.file = new File(filenameMatrices);
-		this.listaConjuntos = new ArrayList<ConjuntoMatrizes>();	
-		this.readerThread = getReaderThread();
+		this.listaConjuntos = new ArrayList<ConjuntoMatrizes>();
+		this.readerThread = new Thread(getReaderThread());
 	}
 
-	public Configuracao exportConfig() throws RemoteException{
-		return (Configuracao) UnicastRemoteObject.exportObject(config, 0);		
+	public Configuracao exportConfig() throws RemoteException {
+		return (Configuracao) UnicastRemoteObject.exportObject(config, 0);
 	}
-	
-	public void runReaderThread(){
-		this.readerThread.run();
+
+	public void runReaderThread() {
+		this.readerThread.start();
 	}
-	
-	private Runnable getReaderThread(){
+
+	private Runnable getReaderThread() {
 		Runnable readerThread = new Runnable() {
 			private Scanner inConjunto;
+			private Object MUTEXREADER = new Object();
+
 			@Override
 			public void run() {
 				try {
@@ -50,37 +50,39 @@ public class ProdutorImpl implements Produtor {
 
 					// Para cada conjunto de matrizes especificado
 					while (inLista.hasNextLine()) {
-						String line = inLista.nextLine();
-						System.out.println("***Lendo "+line+"...");
-						String[] argumentosConjunto = line.split(" ");
-						// Recuperando os parametros de entrada
-						inConjunto = new Scanner(new File(argumentosConjunto[0]));
-						int size = Integer.parseInt(argumentosConjunto[1]);
-						int quantMatrizes = Integer.parseInt(argumentosConjunto[2]);
-						
-						ConjuntoMatrizes conjunto = new ConjuntoMatrizesImpl();
-						conjunto.setDimMatrices(size);
-						while (inConjunto.hasNextLine()) {
-							// Enquanto houver matrizes no arquivo
-							for (int k = 0; k < quantMatrizes; k++) {
-								Matrix matriz = new MatrixImpl();
-								matriz.setDimension(size);
-								for (int i = 0; i < size; i++) {
-									StringTokenizer stringTokenizer = new StringTokenizer(this.inConjunto.nextLine(), " ");
-									for (int j = 0; j < size; j++) {
-										if (stringTokenizer.hasMoreTokens()) {
-											Double value = Double.valueOf(stringTokenizer.nextToken());
-											matriz.setValue(i, j, value);
+						synchronized (MUTEXREADER) {
+							String line = inLista.nextLine();
+							System.out.println("***Lendo " + line + "...");
+							String[] argumentosConjunto = line.split(" ");
+							// Recuperando os parametros de entrada
+							inConjunto = new Scanner(new File(argumentosConjunto[0]));
+							int size = Integer.parseInt(argumentosConjunto[1]);
+							int quantMatrizes = Integer.parseInt(argumentosConjunto[2]);
+
+							ConjuntoMatrizes conjunto = new ConjuntoMatrizesImpl();
+							conjunto.setDimMatrices(size);
+							while (inConjunto.hasNextLine()) {
+								// Enquanto houver matrizes no arquivo
+								for (int k = 0; k < quantMatrizes; k++) {
+									Matrix matriz = new MatrixImpl();
+									matriz.setDimension(size);
+									for (int i = 0; i < size; i++) {
+										StringTokenizer stringTokenizer = new StringTokenizer(
+												this.inConjunto.nextLine(), " ");
+										for (int j = 0; j < size; j++) {
+											if (stringTokenizer.hasMoreTokens()) {
+												Double value = Double.valueOf(stringTokenizer.nextToken());
+												matriz.setValue(i, j, value);
+											}
 										}
 									}
+									conjunto.appendMatrix(matriz);
 								}
-								conjunto.appendMatrix(matriz);
 							}
+							listaConjuntos.add(conjunto);
+							conjunto.print();
+							Thread.sleep(config.getIntervalo());
 						}
-						listaConjuntos.add(conjunto);
-						it = listaConjuntos.iterator();
-						conjunto.print();
-						Thread.sleep(config.getIntervalo());
 					}
 				} catch (FileNotFoundException e) {
 					System.err.println("Erro ao ler arquivo de matrizes:\n" + e);
@@ -89,15 +91,17 @@ public class ProdutorImpl implements Produtor {
 					System.err.println("Erro de interrupção do tempo de sleep:\n" + e);
 				}
 			}
+
 		};
 		return readerThread;
 	}
-	
+
 	@Override
 	public ConjuntoMatrizes obtemMatrizes() throws RemoteException {
 		synchronized (mutex) {
-			if (it.hasNext()) {
-				return it.next();
+			if (listaConjuntos.iterator().hasNext()) {
+				
+				return listaConjuntos.remove(0);
 			}
 			return null;
 		}

@@ -1,6 +1,10 @@
-matrizes1.txt 3 6
-matrizes2.txt 8 3
-matrizes3.txt 2 3
-matrizes4.txt 2 3
-matrizes5.txt 7 10
-matrizes5.txt 7 10
+matrizes1.txt 2 2
+matrizes2.txt 3 3
+matrizes3.txt 4 4
+matrizes4.txt 5 5
+matrizes5.txt 6 6
+matrizes6.txt 7 7
+matrizes7.txt 8 8
+matrizes8.txt 9 9
+matrizes9.txt 10 10
+matrizes10.txt 11 11

@@ -15,8 +15,7 @@ public class MatrixGenerator {
 		Random randomGenerator = new Random();
 		for (int i = 0; i < matrixDim; i++) {
 			for (int j = 0; j < matrixDim; j++) {
-				Double randomValue = (randomGenerator.nextDouble() * randomGenerator.nextDouble())
-						+ (randomGenerator.nextInt() * randomGenerator.nextInt());
+				Double randomValue = Double.valueOf(randomGenerator.nextInt(100) * randomGenerator.nextInt(100));
 				matrix.setValue(i, j, randomValue);
 			}
 		}
@@ -38,17 +37,18 @@ public class MatrixGenerator {
 		matrices.print();
 		WriteMatricesFile.writeMatrices(matrices);
 		WriteMatricesFile.openFile("matrizes.txt", true);
-		WriteMatricesFile.writeNewMatricesArguments("\n"+fileName+" "+numMatrices+" "+dimMatrices);
+		WriteMatricesFile.writeNewMatricesArguments(fileName+" "+numMatrices+" "+dimMatrices+"\n");
 	}
 		
 	public static void main(String[] args) {
-		if(args.length != 3){
-			System.err.println("Argumento: \\nome_do_arquivo.txt \\dimensão_matriz \\numero_matrizes ");
-			System.exit(1);
+		String fileName;
+		int dimMatrices = 1;
+		int numMatrices = 1;
+		for(int i = 1; i <= 10; i++){
+			fileName = "matrizesA.txt";
+			fileName = fileName.replaceAll("A", Integer.toString(i));
+			WriteMatricesFile(fileName, dimMatrices+i,numMatrices+i);
 		}
-		String fileName = args[0];
-		int dimMatrices = Integer.parseInt(args[1]);
-		int numMatrices = Integer.parseInt(args[2]);
-		WriteMatricesFile(fileName, dimMatrices,numMatrices);
+		
 	}
 }
