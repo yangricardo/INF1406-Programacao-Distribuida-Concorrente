@@ -120,12 +120,12 @@ public class ConsumidorImpl {
 									}
 								}
 							}
-							Iterator<Callback> callbacks = tasks.keySet().iterator();
 							System.out.println("\n-----------------------------");
 							System.out.format("Execução das tarefas - Matrizes %d & %d\n", matrixIndex, matrixIndex + 1);
 							System.out.println("-----------------------------");
 							System.out.format("%30s%30s%30s\n", "Timestamp", "Célula", "Resultado");
 							
+							Iterator<Callback> callbacks = tasks.keySet().iterator();
 							while(callbacks.hasNext()) {
 								Callback c = callbacks.next();
 								tasks.get(c).acquire();
