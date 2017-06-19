@@ -1,5 +1,6 @@
 package StockMarket;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +12,11 @@ public class StockServerImpl extends StockServerPOA {
     private Map<String, Float> myStock;
 
     public StockServerImpl() {
+        myStock = new HashMap<String, Float>();
+    }
+
+    public StockServerImpl(File file) {
+        //TODO ler arquivo e criar hashMap com as ações
         myStock = new HashMap<String, Float>();
     }
 
