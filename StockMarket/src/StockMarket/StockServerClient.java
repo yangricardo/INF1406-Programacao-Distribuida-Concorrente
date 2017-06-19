@@ -12,6 +12,23 @@ import org.omg.CORBA.ORB;
 import org.omg.CORBA.TRANSIENT;
 
 public class StockServerClient {
+	private StockServer myStock;
+
+	public StockServerClient(StockServer stockServer) {
+		this.myStock = stockServer;
+	}
+
+	public void run() {
+		try {
+			String[] stockSymbols = myStock.getStockSymbols();
+			System.out.println("Símbolos recuperados!");
+			for (int i = 0; i < stockSymbols.length; i++) {
+				System.out.println(stockSymbols[i] + " : " + myStock.getStockValue(stockSymbols[i]));
+			}
+		} catch (UnknownSymbol unknownSymbol) {
+			unknownSymbol.printStackTrace();
+		}
+	}
 
 	public static void main(String[] args) {
 		
@@ -28,17 +45,13 @@ public class StockServerClient {
 			org.omg.CORBA.Object obj = orb.string_to_object(ior);
 			StockServer server = StockServerHelper.narrow(obj);
 
-			String[] stockSymbols = server.getStockSymbols();
-			for(int i = 0; i < stockSymbols.length; i++) {
-				System.out.println(stockSymbols[i] + " : " + server.getStockValue(stockSymbols[i]));
-			}
+			StockServerClient stockClient = new StockServerClient(server);
+			stockClient.run();
 
 		} catch (FileNotFoundException e) {
 			System.err.println("Arquivo inexistente:\n"+e);
 		} catch (IOException e) {
 			System.err.println("Erro ao ler arquivo:\n"+e);
-		} catch (UnknownSymbol unknownSymbol) {
-			unknownSymbol.printStackTrace();
 		} catch (TRANSIENT e) {
 			System.err.println("O serviço encontra-se indisponível");
 		} catch (COMM_FAILURE e) {

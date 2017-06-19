@@ -44,5 +44,6 @@
       </library>
     </orderEntry>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
+    <orderEntry type="library" name="jacorb-libs" level="project" />
   </component>
 </module>

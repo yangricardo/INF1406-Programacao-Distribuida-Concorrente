@@ -8,6 +8,10 @@ import org.omg.PortableServer.POAManagerPackage.AdapterInactive;
 import org.omg.PortableServer.POAPackage.ServantNotActive;
 import org.omg.PortableServer.POAPackage.WrongPolicy;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.Properties;
 
 /**
@@ -25,9 +29,22 @@ public class StockServerMain {
 
         POA poa = null;
         try {
+            //Criamos o POA
             poa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
             poa.the_POAManager().activate();
+
+            //Exportamos o servant
             org.omg.CORBA.Object o = poa.servant_to_reference(stockServer);
+
+            //Criamos o arquivo IOR
+            PrintWriter ps = new PrintWriter(new FileOutputStream(
+               new File(args[0])
+            ));
+            ps.println(orb.object_to_string(o));
+            ps.close();
+
+            orb.run();
+
         } catch (InvalidName invalidName) {
             System.err.println(invalidName.getMessage());
             invalidName.printStackTrace();
@@ -40,8 +57,8 @@ public class StockServerMain {
         } catch (AdapterInactive adapterInactive) {
             System.err.println(adapterInactive.getMessage());
             adapterInactive.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-
-        orb.run();
     }
 }
